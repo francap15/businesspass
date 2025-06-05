@@ -21,10 +21,6 @@ Una herramienta web simple pero potente que permite generar contraseñas seguras
 * Bootstrap
 * DOM API
 
-## 💵 Monetización
-
-Actualmente monetizado con Google Ads (planificado). En el futuro incluirá una versión premium con funcionalidades avanzadas.
-
 ## 📂 Demo
 
 Puedes probar la app en vivo aquí: \[link a tu sitio o S3]
