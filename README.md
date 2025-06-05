@@ -58,3 +58,4 @@ Distribuido bajo licencia MIT. Ver [LICENSE](https://github.com/francap15/busine
 
 📧 [balter.contacto@gmail.com](mailto:balter.contacto@gmail.com)
 🔗 [LinkedIn - Balter Velázquez](https://www.linkedin.com/in/balter-vel%C3%A1zquez/)
+🌐 [Portafolio](https://baltervelazquez-portfolio.netlify.app/)
