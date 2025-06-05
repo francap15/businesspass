@@ -23,7 +23,7 @@ Una herramienta web simple pero potente que permite generar contraseñas seguras
 
 ## 📂 Demo
 
-Puedes probar la app en vivo aquí: [\BusinessPass](https://businesspassgen.netlify.app/)
+Puedes probar la app en vivo aquí: [BusinessPass](https://businesspassgen.netlify.app/)
 
 ## 🤝 Contribuciones
 
