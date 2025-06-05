@@ -36,9 +36,8 @@ cd businesspass
 open index.html
 ```
 
-## 🤝 Contribuciones
+## 🤝 ¿Cómo Contribuir?
 
-🤝 ¿Cómo Contribuir?
 1. Haz fork del proyecto
 2. Crea tu rama (git checkout -b feature/nueva-funcion)
 3. Haz commit (git commit -m 'Add some feature')
