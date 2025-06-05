@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessPass - Generador Avanzado para Empresas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shield-alt"></i> BusinessPass</h1>
+        <p class="subtitle">Generador de contraseñas robustas para equipos IT y empresas.</p>
+        
+        <div class="control-group">
+            <label for="length-slider">Longitud de la Contraseña:</label>
+            <input type="range" id="length-slider" min="8" max="64" value="16">
+            <div class="length-display">
+                <span>Mín: 8</span>
+                <span class="length-value" id="length-value">16</span>
+                <span>Máx: 64</span>
+            </div>
+        </div>
+        
+        <div class="options">
+            <div class="option">
+                <input type="checkbox" id="uppercase" checked>
+                <label for="uppercase">Mayúsculas (A-Z)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="lowercase" checked>
+                <label for="lowercase">Minúsculas (a-z)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="numbers" checked>
+                <label for="numbers">Números (0-9)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="symbols" checked>
+                <label for="symbols">Símbolos (!@#$)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="exclude-ambiguous">
+                <label for="exclude-ambiguous">Excluir Ambiguos (l,1,O,0)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="batch-mode">
+                <label for="batch-mode">Modo Lote</label>
+            </div>
+        </div>
+        
+        <div class="batch-controls" id="batch-controls">
+            <label for="batch-size">Número de Contraseñas (2-50):</label>
+            <input type="number" id="batch-size" min="2" max="50" value="5">
+        </div>
+        
+        <button id="generate-btn"><i class="fas fa-cogs"></i> Generar Contraseña</button>
+        
+        <div class="result-area">
+            <div class="password-output-container">
+                <div class="password-result" id="password-result">Presiona "Generar"...</div>
+                <button class="copy-btn" id="copy-btn" aria-label="Copiar contraseña"><i class="far fa-copy"></i> Copiar</button>
+            </div>
+            <div class="strength-meter">
+                <div class="strength-bar" id="strength-bar"></div>
+            </div>
+        </div>
+        
+        <button id="download-btn" style="display: none;"><i class="fas fa-download"></i> Descargar CSV</button>
+        
+        <div class="footer">
+            <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
+            <div class="badge">Para Uso Empresarial</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
