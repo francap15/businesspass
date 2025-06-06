@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
+    <meta name="description" content="Genera contraseñas seguras para empresas y usuarios. Exporta lotes en CSV/JSON, 100% seguro y gratuito.">
     <link rel="shortcut icon" href="shield-solid.svg" type="image/x-icon">
     <title>BusinessPass - Generador Avanzado para Empresas</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styless.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">Sobre Mí</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+
+    <main class="container">
         <h1><i class="fas fa-shield-alt"></i> BusinessPass</h1>
         <p class="subtitle">Generador de contraseñas robustas para equipos IT y empresas.</p>
         
@@ -70,17 +78,41 @@
         </div>
         
         <button id="download-btn" style="display: none;"><i class="fas fa-download"></i> Descargar CSV</button>
+
+        <br>
+        <hr>
+        <br>
+
+        <h1><i class="fas fa-newspaper"></i> Blog de Seguridad</h1>
         
-        <div class="footer">
-            <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
-            <div class="badge">Para Uso Empresarial</div>
-            <p style="margin-top: 1rem; font-size: 0.8rem;">
-                <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank" style="color: var(--primary);">Licencia MIT</a>
-            </p>
+        <article class="blog-post">
+            <h2>Cómo crear contraseñas seguras para tu empresa en 2025</h2>
+            <p>Las contraseñas débiles son la principal causa de filtraciones de datos...</p>
+            <a href="assets/posts/post1.html">Leer más</a>
+        </article>
+
+        <article class="blog-post">
+            <h2>5 errores comunes al gestionar contraseñas en equipos IT</h2>
+            <p>Muchas empresas cometen estos fallos que ponen en riesgo su seguridad...</p>
+            <a href="assets/posts/post2.html">Leer más</a>
+        </article>
+        </main>
+
+    <footer class="site-footer">
+        <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
+        <div class="badge">Para Uso Empresarial</div>
+        <div class="footer-links">
+            <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank">Licencia MIT</a>
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="terms.html">Términos de Servicio</a>
         </div>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
+        <button id="acceptCookies">Aceptar</button>
     </div>
     
     <script src="script.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
-</body>
+    </body>
 </html>

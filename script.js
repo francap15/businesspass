@@ -214,3 +214,16 @@ document.addEventListener("DOMContentLoaded", () => {
   updateStrengthMeter(""); // Initialize strength meter
   // generateBtn.click(); // Opcional: generar una contraseña al cargar la página
 });
+
+// Cookie Banner
+const cookieBanner = document.getElementById('cookieBanner');
+const acceptCookies = document.getElementById('acceptCookies');
+
+if (!localStorage.getItem('cookiesAccepted')) {
+    cookieBanner.style.display = 'flex';
+}
+
+acceptCookies.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    cookieBanner.style.display = 'none';
+});
