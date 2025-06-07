@@ -10,9 +10,8 @@
     
     <!-- Preloads optimizados -->
     <link rel="preload" href="../../styless.css" as="style">
-    <link rel="preload" href="../shield-solid.svg" as="image" type="image/svg+xml">
     
-    <link rel="shortcut icon" href="../shield-solid.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../shield-solid.svg" type="image/x-icon">
     <title>Estudio: 5 Errores de Gestión de Contraseñas en Equipos IT | BusinessPass</title>
     
     <!-- Datos estructurados -->
@@ -50,32 +49,85 @@
         <a href="../../faq.html">FAQ</a>
     </nav>
 
-    <main class="container legal-container"> 
+    <main class="container legal-container">
         <h1>5 errores comunes al gestionar contraseñas en equipos IT</h1>
         <p class="subtitle">Publicado el 6 de Junio de 2025 por Balter Velázquez</p>
-
+    
         <img src="../images/screenPost2.png" alt="Gestión de contraseñas en equipos IT"
             style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1.5rem;" />
-
-        <p>En entornos empresariales y técnicos, una mala gestión de contraseñas puede poner en riesgo toda la infraestructura. A pesar del conocimiento técnico, los equipos IT también cometen errores críticos que pueden ser evitados con prácticas simples pero efectivas.</p>
-
+    
+        <h2>Introducción</h2>
+        <p>
+            Incluso los equipos más técnicos pueden cometer errores graves en la gestión de contraseñas. En entornos IT
+            donde se manejan accesos a servidores, bases de datos y sistemas críticos, una mala práctica puede dejar puertas
+            abiertas a ciberataques devastadores.
+        </p>
+    
         <h2>1. Reutilización de contraseñas entre servicios</h2>
-        <p>Uno de los errores más comunes es utilizar la misma contraseña en múltiples plataformas o sistemas. Si una cuenta se ve comprometida, todas las demás que compartan esa clave quedan expuestas.</p>
-
+        <p>
+            Este hábito puede parecer práctico, pero es una bomba de tiempo. Si una cuenta es vulnerada, todas las demás
+            quedan en peligro.
+        </p>
+        <p>
+            👎 <strong>Ejemplo:</strong> usar la misma clave para el correo corporativo, el panel de control del servidor y
+            la consola de administración de base de datos.
+        </p>
+        <p><strong>Solución:</strong> Implementar políticas que obliguen a utilizar contraseñas únicas por servicio y
+            rotarlas regularmente.</p>
+    
         <h2>2. Compartir contraseñas por medios inseguros</h2>
-        <p>Enviar contraseñas por correo, chats no cifrados o incluso capturas de pantalla pone en riesgo la seguridad. Las credenciales deben compartirse mediante gestores con acceso controlado o sistemas de intercambio seguros.</p>
-
-        <h2>3. Falta de rotación de contraseñas</h2>
-        <p>Muchas empresas establecen contraseñas una vez y no las cambian durante meses o años. Esto facilita el trabajo de los atacantes si alguna clave ha sido expuesta sin que nadie lo sepa.</p>
-
-        <h2>4. Almacenamiento local sin cifrado</h2>
-        <p>Guardar contraseñas en archivos de texto, hojas de cálculo o notas locales sin cifrado es una práctica extremadamente peligrosa. Cualquier brecha en el dispositivo comprometerá inmediatamente las credenciales.</p>
-
+        <p>
+            Correos, capturas de pantalla o mensajes en Slack pueden ser interceptados o permanecer accesibles mucho tiempo.
+        </p>
+        <p>
+            🔐 <strong>Usa herramientas</strong> como <em>Bitwarden Teams</em>, <em>Vaultwarden</em> o <em>KeePass</em> con
+            control de accesos para compartir contraseñas de forma segura.
+        </p>
+    
+        <h2>3. Falta de rotación periódica</h2>
+        <p>
+            Algunas claves se mantienen activas por años. Si en algún momento fueron expuestas, el riesgo sigue presente.
+        </p>
+        <h3>Buenas prácticas:</h3>
+        <ul>
+            <li>Rotar claves críticas cada 90 días.</li>
+            <li>Automatizar el cambio de contraseñas con scripts o herramientas.</li>
+        </ul>
+    
+        <h2>4. Almacenamiento sin cifrado</h2>
+        <p>
+            Guardar contraseñas en Excel, .txt o notas sin cifrar es uno de los mayores errores.
+        </p>
+        <p>
+            💣 Un ataque con acceso al disco duro ya puede comprometer todas las credenciales si no hay protección.
+        </p>
+        <p><strong>Solución:</strong> Utiliza cifrado de extremo a extremo y almacena las contraseñas en gestores seguros.
+        </p>
+    
         <h2>5. No revocar accesos de ex-empleados</h2>
-        <p>Algunos equipos olvidan eliminar cuentas o cambiar contraseñas cuando un miembro del equipo deja la organización. Esto puede abrir puertas a accesos no autorizados si no se toman medidas a tiempo.</p>
-
-        <h2>Recomendación final</h2>
-        <p>Evitar estos errores requiere cultura organizacional y herramientas adecuadas. Soluciones como BusinessPass pueden facilitar la creación y renovación de contraseñas seguras, mientras que los gestores de contraseñas ayudan a administrarlas correctamente.</p>
+        <p>
+            Cuando un miembro del equipo se va y conserva acceso, el riesgo es inmediato.
+        </p>
+        <h3>Acciones recomendadas:</h3>
+        <ul>
+            <li>Desactivar cuentas inactivas.</li>
+            <li>Revocar claves API, SSH, VPN y tokens.</li>
+            <li>Documentar procesos de offboarding.</li>
+        </ul>
+    
+        <h2>Bonus: Errores menos conocidos pero peligrosos</h2>
+        <ul>
+            <li>Dejar contraseñas en scripts de producción.</li>
+            <li>Usar claves en el código fuente sin variables de entorno.</li>
+            <li>No monitorear el uso de accesos privilegiados.</li>
+        </ul>
+    
+        <h2>Conclusión</h2>
+        <p>
+            Evitar estos errores requiere más que conocimiento técnico: hace falta disciplina, cultura organizacional y
+            herramientas adecuadas. Plataformas como <strong>BusinessPass</strong> y gestores de contraseñas empresariales
+            pueden marcar una gran diferencia en la seguridad de tu equipo.
+        </p>
     </main>
 
     <footer class="site-footer">
