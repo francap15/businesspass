@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog de BusinessPass: Artículos técnicos sobre seguridad de contraseñas, desarrollo web y buenas prácticas de ciberseguridad.">
+    <!-- Móvil (obligatorio) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#4361ee">
+    
+    <!-- iOS específicos -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/images/icon-192x192.png">
+
     <link rel="canonical" href="https://businesspassgen.netlify.app/blog.html" />
     
     <link rel="shortcut icon" href="shield-solid.svg" type="image/x-icon">
@@ -11,15 +20,25 @@
     
     <!-- Preloads -->
     <link rel="preload" href="styless.css" as="style">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styless.css">
 </head>
 <body>
     <nav class="main-nav">
-        <a href="index.html">Inicio</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">Sobre Mí</a>
-        <a href="faq.html">FAQ</a>
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-shield-alt"></i> BusinessPass
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">Sobre Mí</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+            <button class="nav-toggle" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </nav>
 
     <main class="container legal-container">

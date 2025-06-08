@@ -1,4 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== NAVBAR DINÁMICO =====
+  const nav = document.querySelector(".main-nav");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  let lastScrollY = window.scrollY;
+
+  // Control de scroll
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    // Reset al llegar al top
+    if (currentScrollY <= 10) {
+      nav.classList.remove("scrolled", "hidden");
+      return;
+    }
+
+    // Scroll hacia abajo
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      nav.classList.add("hidden");
+    }
+    // Scroll hacia arriba
+    else {
+      nav.classList.remove("hidden");
+      nav.classList.add("scrolled");
+    }
+
+    lastScrollY = currentScrollY;
+  });
+
+  // Menú móvil
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    navToggle.innerHTML = navLinks.classList.contains("open")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+
+  // Cerrar menú al hacer clic en un link
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
   // --- DOM Elements ---
   const lengthSlider = document.getElementById("length-slider");
   const lengthValueEl = document.getElementById("length-value");
@@ -216,14 +260,47 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Cookie Banner
-const cookieBanner = document.getElementById('cookieBanner');
-const acceptCookies = document.getElementById('acceptCookies');
+const cookieBanner = document.getElementById("cookieBanner");
+const acceptCookies = document.getElementById("acceptCookies");
 
-if (!localStorage.getItem('cookiesAccepted')) {
-    cookieBanner.style.display = 'flex';
+if (!localStorage.getItem("cookiesAccepted")) {
+  cookieBanner.style.display = "flex";
 }
 
-acceptCookies.addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', 'true');
-    cookieBanner.style.display = 'none';
+acceptCookies.addEventListener("click", () => {
+  localStorage.setItem("cookiesAccepted", "true");
+  cookieBanner.style.display = "none";
+});
+
+// Mejor feedback táctil (añade al DOMContentLoaded)
+document.querySelectorAll("button, .option").forEach((el) => {
+  el.style.transition = "transform 0.1s, opacity 0.1s";
+  el.addEventListener("touchstart", () => {
+    el.style.transform = "scale(0.98)";
+    el.style.opacity = "0.9";
+  });
+  el.addEventListener("touchend", () => {
+    el.style.transform = "";
+    el.style.opacity = "";
+  });
+});
+
+// Evitar zoom en inputs (útil para iOS)
+document.querySelectorAll("input, textarea, select").forEach((input) => {
+  input.addEventListener("focus", () => {
+    document
+      .querySelector('meta[name="viewport"]')
+      .setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0, maximum-scale=1.0",
+      );
+  });
+  input.addEventListener("blur", () => {
+    document
+      .querySelector('meta[name="viewport"]')
+      .setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0, maximum-scale=5.0",
+      );
+  });
 });
