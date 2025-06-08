@@ -6,27 +6,23 @@
     <meta name="description" content="BusinessPass: Genera contraseñas ultra-seguras en segundos. Exporta lotes en CSV/JSON. 100% gratuito, seguro y sin almacenamiento de datos. Ideal para empresas y usuarios exigentes.">
     <meta name="keywords" content="generador contraseñas, seguridad informática, contraseñas seguras, herramientas IT, ciberseguridad">
     <meta name="author" content="Balter Velázquez">
-    <!-- Móvil -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#4361ee">
-    
-    <!-- iOS específicos -->
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="assets/images/icon-192x192.png">
 
     <link rel="canonical" href="https://businesspassgen.netlify.app" />
-    
-    <!-- Preconexiones y precargas -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preload" href="styless.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
-    
+
     <link rel="shortcut icon" href="shield-solid.svg" type="image/x-icon">
     <title>BusinessPass | Generador Profesional de Contraseñas Seguras</title>
-    
-    <!-- Schema Markup -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -37,13 +33,11 @@
         "operatingSystem": "Web Browser"
     }
     </script>
-    
-    <!-- Hojas de estilo -->
+
     <link href="styless.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Ads (cargar al final) -->
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -67,7 +61,7 @@
     <main class="container">
         <h1><i class="fas fa-shield-alt"></i> BusinessPass</h1>
         <p class="subtitle">Generador de contraseñas robustas para equipos IT y empresas.</p>
-        
+
         <div class="control-group">
             <label for="length-slider">Longitud de la Contraseña:</label>
             <input type="range" id="length-slider" min="8" max="64" value="16">
@@ -77,41 +71,66 @@
                 <span>Máx: 64</span>
             </div>
         </div>
-        
+
         <div class="options">
-            <div class="option">
-                <input type="checkbox" id="uppercase" checked>
-                <label for="uppercase">Mayúsculas (A-Z)</label>
+            <div id="regular-password-options" class="options-grid"> <div class="option">
+                    <input type="checkbox" id="uppercase" checked>
+                    <label for="uppercase">Mayúsculas (A-Z)</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="lowercase" checked>
+                    <label for="lowercase">Minúsculas (a-z)</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="numbers" checked>
+                    <label for="numbers">Números (0-9)</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="symbols" checked>
+                    <label for="symbols">Símbolos (!@#$)</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="exclude-ambiguous">
+                    <label for="exclude-ambiguous">Excluir Ambiguos (l,1,O,0)</label>
+                </div>
             </div>
-            <div class="option">
-                <input type="checkbox" id="lowercase" checked>
-                <label for="lowercase">Minúsculas (a-z)</label>
+
+            <div id="passphrase-explanation" class="info-message" style="display: none;">
+                <h3>¡Modo Passphrase Activo!</h3>
+                <p>Aquí, la "Longitud" se refiere al **número de palabras**, no a caracteres. Generamos frases más fáciles de recordar y ultra-seguras. Puedes ajustar el separador entre palabras.</p>
             </div>
-            <div class="option">
-                <input type="checkbox" id="numbers" checked>
-                <label for="numbers">Números (0-9)</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="symbols" checked>
-                <label for="symbols">Símbolos (!@#$)</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="exclude-ambiguous">
-                <label for="exclude-ambiguous">Excluir Ambiguos (l,1,O,0)</label>
-            </div>
+
             <div class="option">
                 <input type="checkbox" id="batch-mode">
                 <label for="batch-mode">Modo Lote</label>
             </div>
+            <div class="option">
+                <input type="checkbox" id="passphrase-mode">
+                <label for="passphrase-mode">Modo Passphrase</label>
+            </div>
+
+            <div id="passphrase-controls" class="hidden">
+                <label for="passphrase-length">Palabras:</label>
+                <input type="range" id="passphrase-length" min="3" max="8" value="4">
+                <span class="length-value" id="passphrase-length-value">4</span>
+
+                <label for="passphrase-separator">Separador:</label>
+                <select id="passphrase-separator">
+                    <option value="-">Guion (-)</option>
+                    <option value="_">Guión bajo (_)</option>
+                    <option value=".">Punto (.)</option>
+                    <option value=" ">Espacio</option>
+                </select>
+            </div>
         </div>
-        
+
         <div class="batch-controls" id="batch-controls">
             <label for="batch-size">Número de Contraseñas (2-50):</label>
             <input type="number" id="batch-size" min="2" max="50" value="5">
         </div>
-        
+
         <button id="generate-btn"><i class="fas fa-cogs"></i> Generar Contraseña</button>
-        
+
         <div class="result-area">
             <div class="password-output-container">
                 <div class="password-result" id="password-result">Presiona "Generar"...</div>
@@ -121,7 +140,7 @@
                 <div class="strength-bar" id="strength-bar"></div>
             </div>
         </div>
-        
+
         <button id="download-btn" style="display: none;"><i class="fas fa-download"></i> Descargar CSV</button>
 
         <br>
@@ -129,7 +148,7 @@
         <br>
 
         <h1><i class="fas fa-newspaper"></i> Blog de Seguridad</h1>
-        
+
         <article class="blog-post">
             <h2>Cómo crear contraseñas seguras para tu empresa en 2025</h2>
             <p>Las contraseñas débiles son la principal causa de filtraciones de datos...</p>
@@ -141,7 +160,7 @@
             <p>Muchas empresas cometen estos fallos que ponen en riesgo su seguridad...</p>
             <a href="assets/posts/post2.html">Leer más</a>
         </article>
-        </main>
+    </main>
 
     <footer class="site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
@@ -157,7 +176,7 @@
         <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
         <button id="acceptCookies">Aceptar</button>
     </div>
-    
+
     <script src="script.js"></script>
-    </body>
+</body>
 </html>

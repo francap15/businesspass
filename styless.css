@@ -11,6 +11,7 @@
     --strength-weak: #ff4d4d;
     --strength-medium: #ffcc00;
     --strength-strong: #00e676;
+    --accent-color: #4cc9f0; /* Define a consistent accent for highlighting */
 }
 
 * {
@@ -25,146 +26,94 @@ body {
     color: var(--text-light);
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Changed to column to properly handle header and footer */
-    justify-content: flex-start; /* Align content to the top */
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    padding: 0; /* Remove padding here, add to main container if needed */
+    padding-top: 60px; /* Add padding to account for fixed navbar height */
 }
 
+/* --- Main Navigation Styles --- */
 .main-nav {
-    background: var(--card-bg); /* Use card-bg for a slightly different shade */
-    padding: 1rem 2rem; /* Add horizontal padding */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    margin-bottom: 2rem; /* Space below nav */
+    background: rgba(26, 26, 46, 0.9); /* Semi-transparent for blur effect */
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow even when not scrolled */
 }
-.main-nav a {
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav-logo {
     color: var(--text-light);
-    margin: 0 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
+    padding: 0.5rem 0; /* Add padding for larger click area */
 }
-.main-nav a:hover {
+.nav-links a:hover {
     color: var(--primary);
 }
 
+.nav-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem; /* Make it easier to tap */
+}
+
+/* Dynamic Navbar States */
+.main-nav.scrolled {
+    background: rgba(26, 26, 46, 0.98); /* Less transparent when scrolled */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    padding: 0.3rem 0;
+}
+
+.main-nav.hidden {
+    transform: translateY(-100%);
+}
+
+/* --- Main Content Container --- */
 .container {
     width: 100%;
-    max-width: 600px; /* Max-width for password generator */
+    max-width: 600px;
     background: var(--card-bg);
     border-radius: 12px;
     padding: 2.5rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    margin: 0 auto 2rem auto; /* Centering and space below */
+    margin: 2rem auto; /* Adjust top margin since nav is fixed */
 }
 
-/* Styles for legal/blog content pages */
-.legal-container {
-    max-width: 800px; /* Wider for better readability of long text */
-    line-height: 1.8; /* More comfortable line height */
-    padding: 2.5rem;
-    /* Other .container styles apply */
-}
-.legal-container h1 {
-    text-align: left; /* Align headings left */
-    margin-bottom: 1rem;
-}
-.legal-container .subtitle {
-    text-align: left; /* Align subtitle left */
-    margin-bottom: 2rem;
-}
-.legal-container h2 {
-    color: var(--primary);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-}
-.legal-container h3 {
-    color: var(--text-light);
-    margin-top: 1.5rem;
-    margin-bottom: 0.8rem;
-    font-size: 1.4rem;
-}
-.legal-container p {
-    margin-bottom: 1rem;
-    color: var(--text-muted);
-}
-.legal-container ul, .legal-container ol {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-muted);
-}
-.legal-container ul li, .legal-container ol li {
-    margin-bottom: 0.5rem;
-}
-.legal-container a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-.legal-container a:hover {
-    color: var(--primary-hover);
-    text-decoration: underline;
-}
-
-.faq-section {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-.faq-section:last-child {
-    border-bottom: none;
-}
-.faq-section h2 {
-    font-size: 1.5rem;
-    margin-top: 0; /* Override default h2 margin-top */
-    margin-bottom: 0.8rem;
-    color: var(--text-light); /* Make FAQ questions more prominent */
-}
-.faq-section p {
-    margin-bottom: 0;
-}
-
-/* Blog post specific styles (for index.html and blog.html) */
-.blog-post {
-    background: var(--input-bg); /* Use input-bg for article cards */
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.blog-post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-.blog-post h2 {
-    font-size: 1.5rem;
-    color: var(--primary);
-    margin-bottom: 0.75rem;
-}
-.blog-post p {
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
-.blog-post a {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.2s ease;
-}
-.blog-post a:hover {
-    background: var(--primary-hover);
-    text-decoration: none;
-}
-
-
-/* Your existing styles (continue below) */
+/* --- General Headings & Text --- */
 h1 {
     color: var(--primary);
     margin-bottom: 0.5rem;
@@ -180,6 +129,7 @@ h1 {
     text-align: center;
 }
 
+/* --- Form Controls --- */
 .control-group {
     margin-bottom: 2rem;
 }
@@ -254,6 +204,7 @@ input[type="range"]::-moz-range-thumb {
     background: var(--input-bg);
     padding: 0.75rem;
     border-radius: 6px;
+    transition: transform 0.1s, opacity 0.1s; /* For touch feedback */
 }
 
 .option input[type="checkbox"] {
@@ -267,6 +218,7 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 400;
 }
 
+/* --- Buttons --- */
 button {
     background: var(--primary);
     color: white;
@@ -301,6 +253,20 @@ button#generate-btn {
     margin-bottom: 1.5rem;
 }
 
+button#download-btn {
+    background: var(--success);
+    margin-top: 1rem;
+}
+
+button#download-btn:hover {
+    background: #3db4d3; /* A slightly darker success color */
+}
+
+.fas {
+    margin-right: 0.5em;
+}
+
+/* --- Result Area --- */
 .result-area {
     margin-bottom: 1.5rem;
 }
@@ -344,6 +310,7 @@ button#generate-btn {
     cursor: pointer;
     width: auto;
     font-size: 0.85rem;
+    transition: background 0.2s ease, transform 0.1s, opacity 0.1s; /* For touch feedback */
 }
 
 .copy-btn:hover {
@@ -371,6 +338,7 @@ button#generate-btn {
     transition: all 0.3s ease-in-out;
 }
 
+/* --- Batch Mode Controls --- */
 .batch-controls {
     display: none;
     margin-bottom: 2rem;
@@ -397,25 +365,151 @@ button#generate-btn {
     font-size: 1rem;
 }
 
-button#download-btn {
-    background: var(--success);
+/* --- Passphrase Controls --- */
+#passphrase-controls {
+    display: none;
+    background: var(--input-bg); /* Consistent with other input areas */
+    padding: 1rem;
+    border-radius: 8px;
     margin-top: 1rem;
 }
 
-button#download-btn:hover {
-    background: #3db4d3;
+#passphrase-controls.show {
+    display: block;
 }
 
-/* Updated Footer Styles */
+#passphrase-length {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+#passphrase-separator {
+    width: 100%;
+    padding: 0.6rem; /* Match other inputs */
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+}
+
+/* --- Legal/Blog Content Pages --- */
+.legal-container {
+    max-width: 800px;
+    line-height: 1.8;
+    padding: 2.5rem;
+    margin: 2rem auto; /* Adjust top margin */
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+.legal-container h1 {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.legal-container .subtitle {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.legal-container h2 {
+    color: var(--primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+.legal-container h3 {
+    color: var(--text-light);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+}
+.legal-container p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+.legal-container ul, .legal-container ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+.legal-container ul li, .legal-container ol li {
+    margin-bottom: 0.5rem;
+}
+.legal-container a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.legal-container a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.faq-section:last-child {
+    border-bottom: none;
+}
+.faq-section h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+}
+.faq-section p {
+    margin-bottom: 0;
+}
+
+/* --- Blog Post Styles --- */
+.blog-post {
+    background: var(--input-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.blog-post h2 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+.blog-post p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+.blog-post a {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+.blog-post a:hover {
+    background: var(--primary-hover);
+    text-decoration: none;
+}
+
+/* --- Footer Styles --- */
 .site-footer {
-    margin-top: auto; /* Push footer to the bottom */
+    margin-top: auto;
     padding: 2rem 1rem;
     font-size: 0.85rem;
     color: var(--text-muted);
     text-align: center;
     width: 100%;
-    background: var(--card-bg); /* Match nav background */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    background: var(--card-bg);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .site-footer p {
@@ -429,15 +523,15 @@ button#download-btn:hover {
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem; /* Space out links */
-    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
     color: var(--primary);
     text-decoration: none;
     transition: color 0.2s ease;
-    font-size: 0.8rem; /* Slightly smaller for footer links */
+    font-size: 0.8rem;
 }
 
 .footer-links a:hover {
@@ -445,25 +539,20 @@ button#download-btn:hover {
     text-decoration: underline;
 }
 
-/* Iconos en botones */
-.fas {
-    margin-right: 0.5em;
-}
-
-/* Cookie Banner */
+/* --- Cookie Banner --- */
 .cookie-banner {
     position: fixed;
     bottom: 0;
-    left: 0; /* Ensure it stretches across */
+    left: 0;
     background: var(--card-bg);
-    padding: 1rem 2rem; /* More padding */
+    padding: 1rem 2rem;
     width: 100%;
     display: flex;
-    flex-wrap: wrap; /* Allow content to wrap */
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
     color: var(--text-light);
 }
 
@@ -486,36 +575,61 @@ button#download-btn:hover {
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
-    margin-top: 0.5rem; /* Space on small screens */
-    width: auto; /* Adjust to content */
+    margin-top: 0.5rem;
+    width: auto;
+    transition: background 0.2s ease; /* Remove transform/shadow for this button */
 }
 .cookie-banner button:hover {
     background: var(--primary-hover);
-    transform: none; /* No transform for cookie button */
-    box-shadow: none;
 }
 
-/* Responsive Adjustments */
+/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
+    /* Navbar Mobile */
+    .nav-content {
+        flex-direction: row; /* Keep logo and toggle on same row */
+        justify-content: space-between; /* Space out logo and toggle */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 60px; /* Below the fixed navbar */
+        left: 0;
+        width: 100%;
+        background: var(--card-bg);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        clip-path: circle(0% at 90% -10%); /* Start from top-right corner */
+        transition: clip-path 0.7s ease;
+        z-index: 999; /* Below the navbar */
+    }
+
+    .nav-links.open {
+        clip-path: circle(150% at 50% 50%); /* Expand from center */
+    }
+
+    .nav-toggle {
+        display: block; /* Show hamburger icon */
+    }
+
+    .main-nav.scrolled {
+        padding: 0.2rem 0;
+    }
+
+    /* General Mobile Adjustments */
     .container {
         padding: 1.5rem;
+        margin: 1.5rem auto; /* Adjust margin for smaller screens */
     }
     h1 {
         font-size: 1.8rem;
     }
-    .main-nav {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    .main-nav a {
-        display: block; /* Stack links vertically */
-        margin: 0.5rem 0;
-    }
     .options {
-        grid-template-columns: 1fr; /* Stack options on small screens */
+        grid-template-columns: 1fr;
     }
     .copy-btn {
-        position: static; /* Position normally */
+        position: static;
         margin-top: 1rem;
         width: 100%;
     }
@@ -534,32 +648,27 @@ button#download-btn:hover {
     }
 }
 
-/* ===== MOBILE FIRST (480px o menos) ===== */
+/* --- Mobile First Specific Adjustments (480px or less) --- */
 @media (max-width: 480px) {
     body {
         -webkit-text-size-adjust: 100%;
-        /* Evita zoom automático en iOS */
     }
 
     .container {
         padding: 1rem !important;
-        /* Más espacio útil */
         margin: 0 auto 1rem auto;
         border-radius: 0;
-        /* Mejor aprovechamiento de pantalla */
     }
 
-    /* Botones y controles táctiles */
+    /* Tactile buttons and controls */
     button,
     .copy-btn,
     .option {
         min-height: 48px;
-        /* Tamaño táctil recomendado */
     }
 
     .option {
         padding: 15px 10px !important;
-        /* Área táctil más grande */
     }
 
     input[type="checkbox"] {
@@ -567,118 +676,65 @@ button#download-btn:hover {
         height: 22px !important;
     }
 
-    /* Resultados en móvil */
+    /* Mobile results area */
     .password-output-container {
         padding: 0.8rem;
         max-height: 40vh;
-        /* Evita que ocupe toda la pantalla */
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        /* Scroll suave en iOS */
     }
 
     .password-result div {
         padding: 12px 0;
-        /* Espacio entre contraseñas en batch */
         font-size: 0.9rem;
-        /* Mejor legibilidad */
     }
 
-    /* Navegación móvil */
+    /* Mobile navigation (already largely handled by 768px media query, but good to reinforce) */
     .main-nav {
-        padding: 0.5rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+        padding: 0.5rem 0;
     }
-
-    .main-nav a {
-        margin: 0.25rem;
-        padding: 0.5rem;
+    .nav-content {
+        padding: 0 1rem; /* Adjust padding for very small screens */
+    }
+    .nav-links a {
+        margin: 0.25rem 0;
+        padding: 0.5rem 1rem; /* Provide more padding for tap target */
     }
 }
 
-/* ===== NAVBAR AVANZADA ===== */
-.main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(26, 26, 46, 0.9);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0.5rem 0;
+/* --- Highlighted Class (for JavaScript interaction) --- */
+.highlighted {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 6px var(--accent-color);
 }
 
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    /* margin-bottom: 2.5rem;  Remove this from the original .options if it was there and rely on gap for spacing */
 }
 
-.nav-logo {
-    color: white;
-    font-weight: 600;
+.info-message {
+    background: rgba(67, 97, 238, 0.15); /* A slightly darker primary transparent color */
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1.5rem; /* Space from controls */
+    margin-bottom: 2.5rem; /* Ensure it takes up space like the options */
+    color: var(--text-light);
+    text-align: center;
+}
+
+.info-message h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
     font-size: 1.2rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Estados dinámicos */
-.main-nav.scrolled {
-    background: rgba(26, 26, 46, 0.98);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-    padding: 0.3rem 0;
-}
-
-.main-nav.hidden {
-    transform: translateY(-100%);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: var(--card-bg);
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        clip-path: circle(0% at 90% -10%);
-        transition: clip-path 0.7s ease;
-    }
-
-    .nav-links.open {
-        clip-path: circle(150% at 50% 50%);
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    .main-nav.scrolled {
-        padding: 0.2rem 0;
-    }
+.info-message p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0;
 }
