@@ -80,5 +80,5 @@ Distribuido bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles
 Si tienes preguntas, sugerencias o deseas explorar oportunidades de colaboración, no dudes en contactarme.
 
 📧 Email: balter.contacto@gmail.com
-🔗 [LinkedIn: Balter Velázquez](https://www.linkedin.com/in/balter-vel%C3%A1zquez/)
-🌐 [Portafolio: baltervelazquez-portfolio.netlify.app](https://baltervelazquez-portfolio.netlify.app/)
+🔗 LinkedIn: [Balter Velázquez](https://www.linkedin.com/in/balter-vel%C3%A1zquez/)
+🌐 Portafolio: [baltervelazquez-portfolio.netlify.app](https://baltervelazquez-portfolio.netlify.app/)
