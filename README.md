@@ -81,4 +81,4 @@ Si tienes preguntas, sugerencias o deseas explorar oportunidades de colaboració
 
 📧 Email: balter.contacto@gmail.com
 🔗 [LinkedIn: Balter Velázquez](https://www.linkedin.com/in/balter-vel%C3%A1zquez/)
-🌐 [Portafolio:](https://baltervelazquez-portfolio.netlify.app/)
+🌐 [Portafolio: baltervelazquez-portfolio.netlify.app](https://baltervelazquez-portfolio.netlify.app/)
