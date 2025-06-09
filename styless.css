@@ -738,3 +738,132 @@ button#download-btn:hover {
     line-height: 1.4;
     margin-bottom: 0;
 }
+
+/* --- Donation Modal Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top (above nav and cookie banner) */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Padding for small screens */
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: auto; /* Centered */
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 90%; /* Could be more specific on larger screens */
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+    text-align: center;
+    animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.modal-content p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.close-button {
+    color: var(--text-muted);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.donation-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 1rem auto;
+    width: 80%; /* Adjust width */
+    max-width: 300px;
+    transition: all 0.2s ease-in-out;
+}
+
+.donation-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mercadopago-button {
+    background-color: #009ee3; /* Mercado Pago Blue */
+    color: white;
+}
+
+.mercadopago-button:hover {
+    background-color: #007bb6;
+}
+
+.paypal-button {
+    background-color: #0070ba; /* PayPal Blue */
+    color: white;
+}
+
+.paypal-button:hover {
+    background-color: #004a7f;
+}
+
+.small-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 1.5rem;
+    }
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+    .donation-button {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+        width: 100%;
+    }
+}

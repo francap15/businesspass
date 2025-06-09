@@ -431,6 +431,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// ===== DONATION MODAL LOGIC =====
+const donationModal = document.getElementById("donationModal");
+const supportLink = document.getElementById("support-link");
+const closeButton = document.querySelector("#donationModal .close-button");
+
+// Open modal when "Apoya el Proyecto" link is clicked
+if (supportLink) {
+    supportLink.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent default link behavior
+        donationModal.style.display = "flex"; // Show the modal
+        // Add a class to body to prevent scrolling while modal is open (optional, but good practice)
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// Close modal when 'x' is clicked
+if (closeButton) {
+    closeButton.addEventListener("click", () => {
+        donationModal.style.display = "none";
+        document.body.style.overflow = ''; // Restore body scroll
+    });
+}
+
+// Close modal when clicking outside of it
+window.addEventListener("click", (event) => {
+    if (event.target === donationModal) {
+        donationModal.style.display = "none";
+        document.body.style.overflow = ''; // Restore body scroll
+    }
+});
+
+// Show modal as a subtle prompt after a delay, only once per session
+const hasSeenDonationPrompt = sessionStorage.getItem("hasSeenDonationPrompt");
+if (!hasSeenDonationPrompt) {
+    setTimeout(() => {
+        if (donationModal.style.display !== "flex") { // Only show if not already open
+            donationModal.style.display = "flex";
+            document.body.style.overflow = 'hidden';
+            sessionStorage.setItem("hasSeenDonationPrompt", "true");
+        }
+    }, 10000); // Show after 10 seconds (adjust as needed)
+}
+
 // Cookie Banner
 const cookieBanner = document.getElementById("cookieBanner");
 const acceptCookies = document.getElementById("acceptCookies");
