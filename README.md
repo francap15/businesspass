@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-DEPLOY-ID/deploy-status)](https://app.netlify.com/sites/businesspassgen/deploys)
-[![Hecho con ❤️ por Balter Velázquez](https://img.shields.io/badge/Hecho%20con%20❤️-Balter%20Velázquez-orange)](https://baltervelazquez-portfolio.netlify.app/)
+[![Hecho por Balter Velázquez](https://baltervelazquez-portfolio.netlify.app/)
 [![Contacto](https://img.shields.io/badge/Contacto-balter.contacto@gmail.com-red)](mailto:balter.contacto@gmail.com)
 
 Herramienta profesional de código abierto para la generación de contraseñas ultra-seguras y passphrases robustas, diseñada específicamente para entornos corporativos y equipos IT. Prioriza la seguridad, la eficiencia y la privacidad de los datos.
@@ -49,7 +49,7 @@ open index.html # En macOS
 ```
 
 🤝 ¿Cómo Contribuir al Proyecto?
-BusinessPass es un proyecto de código abierto y agradecemos enormemente cualquier tipo de contribución. Tu ayuda es crucial para mejorar la seguridad digital.
+BusinessPass es un proyecto de código abierto y agradezco enormemente cualquier tipo de contribución. Tu ayuda es crucial para mejorar la seguridad digital.
 
 Haz un "Fork" de este repositorio.
 Crea tu rama de desarrollo: git checkout -b feature/nombre-de-tu-funcion
@@ -64,14 +64,14 @@ Testing: Creación de pruebas unitarias y de integración para garantizar la fia
 Optimización de Rendimiento: Asegurar que la herramienta sea rápida y eficiente.
 Documentación: Ayudar a mantener la documentación clara y actualizada.
 💚 Apoya el Proyecto
-BusinessPass es una herramienta gratuita y de código abierto. Tu apoyo nos ayuda a cubrir los costos de mantenimiento, mejorar sus funcionalidades y a seguir desarrollando soluciones de seguridad digital.
+BusinessPass es una herramienta gratuita y de código abierto. Tu apoyo me ayuda a cubrir los costos de mantenimiento, mejorar sus funcionalidades y a seguir desarrollando soluciones de seguridad digital.
 
-Puedes apoyarnos a través de una donación directa:
+Puedes apoyame a través de una donación directa:
 
 👉 Apoyar con Mercado Pago (Uruguay)
 👉 Apoyar con PayPal (Internacional)
 
-¡Cada contribución es inmensamente valorada y nos permite mantener BusinessPass robusto y accesible para todos!
+¡Cada contribución es inmensamente valorada y me permite mantener BusinessPass robusto y accesible para todos!
 
 📜 Licencia
 Distribuido bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
@@ -80,5 +80,5 @@ Distribuido bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles
 Si tienes preguntas, sugerencias o deseas explorar oportunidades de colaboración, no dudes en contactarme.
 
 📧 Email: balter.contacto@gmail.com
-🔗 LinkedIn: Balter Velázquez
-🌐 Portafolio: baltervelazquez-portfolio.netlify.app
+🔗 [LinkedIn: Balter Velázquez](https://www.linkedin.com/in/balter-vel%C3%A1zquez/)
+🌐 [Portafolio:](https://baltervelazquez-portfolio.netlify.app/)
