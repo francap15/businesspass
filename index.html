@@ -120,6 +120,20 @@
             </div>
 
             <div id="passphrase-controls" class="hidden">
+                <div class="options-grid">
+                    <div class="option">
+                        <input type="checkbox" id="passphrase-capitalize-randomly">
+                        <label for="passphrase-capitalize-randomly">Capitalizar palabras al azar</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="passphrase-include-numbers">
+                        <label for="passphrase-include-numbers">Incluir números</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="passphrase-include-symbols">
+                        <label for="passphrase-include-symbols">Incluir símbolos</label>
+                    </div>
+                </div>
                 <label for="passphrase-length">Palabras:</label>
                 <input type="range" id="passphrase-length" min="3" max="8" value="4">
                 <span class="length-value" id="passphrase-length-value">4</span>
