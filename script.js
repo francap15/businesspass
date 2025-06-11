@@ -471,7 +471,7 @@ if (!hasSeenDonationPrompt) {
             document.body.style.overflow = 'hidden';
             sessionStorage.setItem("hasSeenDonationPrompt", "true");
         }
-    }, 120000); // Show after 10 seconds (adjust as needed)
+    }, 180000); // Show after 10 seconds (adjust as needed)
 }
 
 // Cookie Banner
