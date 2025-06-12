@@ -2,9 +2,6 @@
 // js/modal-handler.js - Lógica del modal de donaciones
 // ===========================================
 
-// NO necesitamos importar DOM completo aquí, ya que los elementos del modal
-// están ahora estáticamente en el HTML y se consultarán directamente.
-
 /**
  * Inicializa la lógica del modal de donaciones.
  * Asume que el HTML del modal ya está presente en el DOM.
@@ -40,15 +37,10 @@ export function initDonationModal() {
         }
     });
 
-    // Mostrar el modal de donaciones como un mensaje sutil, una vez por sesión
-    const hasSeenDonationPrompt = sessionStorage.getItem("hasSeenDonationPrompt");
-    if (!hasSeenDonationPrompt && donationModal) { // Solo mostrar si no se ha visto y el modal existe
-        setTimeout(() => {
-            if (donationModal.style.display !== "flex") { // Solo mostrar si no está ya abierto
-                donationModal.style.display = "flex";
-                document.body.style.overflow = 'hidden';
-                sessionStorage.setItem("hasSeenDonationPrompt", "true");
-            }
-        }, 180000); // Mostrar después de 3 minutos (180000 ms)
-    }
+    // === INICIO DE CAMBIO ===
+    // Se ha eliminado la lógica de mostrar el modal automáticamente
+    // a través de sessionStorage y setTimeout.
+    // Ahora, el modal solo se abrirá cuando el usuario haga clic
+    // en el enlace "Apoya el Proyecto".
+    // === FIN DE CAMBIO ===
 }
