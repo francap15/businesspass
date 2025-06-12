@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessPass | Eleva tu Seguridad con NordVPN</title>
+    <meta name="description" content="Descubre cómo NordVPN complementa tu seguridad de contraseñas, protegiendo tu conexión y datos en línea.">
+    
+    <!-- Metas para móvil e iOS, consistentes con tu blog -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#4361ee">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="../../assets/images/icon-192x192.png">
+
+    <!-- Preconexiones y precargas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="../../css/styless.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Fuentes: Inter para texto general, Poppins para títulos (consistente con el blog) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG28R51V9C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-SG28R51V9C');
+    </script>
+
+    <!-- Hoja de estilos principal de tu sitio. Carga styless.css -->
+    <link href="../../css/styless.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../../shield-solid.svg" type="image/x-icon">
+</head>
+<body class="antialiased leading-normal">
+
+    <nav class="main-nav">
+        <div class="nav-content">
+            <a href="../../index.html" class="nav-logo">
+                <i class="fas fa-shield-alt"></i> BusinessPass
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html">Inicio</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="../../about.html">Sobre Mí</a>
+                <a href="../../faq.html">FAQ</a>
+            </div>
+            <button class="nav-toggle" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container legal-container">
+        <!-- Introduction Section -->
+        <section class="section-padded">
+            <h1>
+                <span class="text-blue-600">🔒</span> Eleva tu Seguridad Digital con NordVPN
+            </h1>
+            <p class="subtitle-text">
+                En BusinessPass, te equipamos con contraseñas robustas. Pero la seguridad digital es un ecosistema. Descubre cómo una VPN de confianza como NordVPN complementa tu fortaleza al proteger tu conexión a internet, un eslabón crucial en la cadena de tu ciberseguridad.
+            </p>
+            <p > <!-- Using text-muted for this general text -->
+                Esta página interactiva te guiará a través de los beneficios de NordVPN y cómo puede integrarse a tu rutina de seguridad.
+            </p>
+        </section>
+
+        <!-- The Threat and The Solution Diagram -->
+        <section class="section-padded">
+            <h2 class="text-center">
+                ¿Tu Conexión Está Realmente Segura?
+            </h2>
+            <p class="subtitle-text text-center">
+                Haz clic en el diagrama para ver cómo NordVPN transforma una conexión vulnerable en una fortaleza privada.
+            </p>
+            <div id="securityDiagram" class="unencrypted security-diagram-container">
+                <div class="diagram-flex-group">
+                    <div class="diagram-box">
+                        <span class="text-4xl">💻</span>
+                        <p>Tu Dispositivo</p>
+                    </div>
+                    <div class="diagram-arrow-group">
+                        <div class="diagram-arrow">➜</div>
+                        <span class="encryption-line">Conexión Insegura (HTTP)</span>
+                    </div>
+                    <div class="diagram-box">
+                        <span class="text-4xl">🌐</span>
+                        <p>Internet</p>
+                    </div>
+                    <div class="diagram-arrow-group">
+                        <div class="diagram-arrow">➜</div>
+                        <span class="encryption-line">Acceso Libre</span>
+                    </div>
+                    <div class="diagram-box">
+                        <span class="text-4xl">🔓</span>
+                        <p>Tus Datos Expuestos</p>
+                    </div>
+                </div>
+                <div id="vpnTunnel" class="vpn-tunnel-message hidden">
+                    <p>🔐 ¡Con NordVPN, tu conexión se vuelve un túnel cifrado! Nadie puede ver tus datos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NordVPN Features -->
+        <section class="section-padded">
+            <h2 class="text-center">
+                Beneficios Clave de NordVPN
+            </h2>
+            <p class="subtitle-text text-center">
+                Descubre cómo NordVPN te ofrece una protección superior. Pasa el cursor sobre cada tarjeta para más detalles.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-title">
+                        <span class="text-blue-600">🔒</span>
+                        <h3>Cifrado de Grado Militar</h3>
+                    </div>
+                    <p class="feature-short">
+                        Protege tus datos con los estándares de seguridad más altos.
+                    </p>
+                    <p class="feature-detail hidden">
+                        Utiliza algoritmos de cifrado avanzados como AES-256-GCM para asegurar que tu información sea impenetrable para terceros.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-title">
+                        <span class="text-blue-600">🕵️</span>
+                        <h3>Política de No Registros (No-Logs)</h3>
+                    </div>
+                    <p class="feature-short">
+                        Tu actividad en línea es solo tuya, garantizado por una política estricta.
+                    </p>
+                    <p class="feature-detail hidden">
+                        NordVPN ha sido auditado de forma independiente para confirmar que no recopila, rastrea ni almacena ningún registro de tu actividad en línea.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-title">
+                        <span class="text-blue-600">⚡</span>
+                        <h3>Velocidad y Fiabilidad</h3>
+                    </div>
+                    <p class="feature-short">
+                        Disfruta de conexiones rápidas y estables en todo el mundo.
+                    </p>
+                    <p class="feature-detail hidden">
+                        Con miles de servidores en decenas de países, NordVPN minimiza la latencia y maximiza el rendimiento para streaming, juegos y navegación.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-title">
+                        <span class="text-blue-600">📱</span>
+                        <h3>Fácil de Usar y Multiplataforma</h3>
+                    </div>
+                    <p class="feature-short">
+                        Aplicaciones intuitivas para todos tus dispositivos.
+                    </p>
+                    <p class="feature-detail hidden">
+                        Compatible con Windows, macOS, Linux, Android, iOS y extensiones de navegador. Conecta hasta 6 dispositivos simultáneamente con una sola cuenta.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-title">
+                        <span class="text-blue-600">🚫</span>
+                        <h3>Threat Protection</h3>
+                    </div>
+                    <p class="feature-short">
+                        Bloquea malware, anuncios y rastreadores automáticamente.
+                    </p>
+                    <p class="feature-detail hidden">
+                        Una función integrada que escanea descargas, bloquea sitios web maliciosos y elimina anuncios intrusivos para una navegación más segura.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-title">
+                        <span class="text-blue-600">🌍</span>
+                        <h3>Acceso a Contenido Global</h3>
+                    </div>
+                    <p class="feature-short">
+                        Conéctate a servidores en todo el mundo para acceder a contenido sin restricciones.
+                    </p>
+                    <p class="feature-detail hidden">
+                        Supera las restricciones geográficas y disfruta de tus servicios de streaming favoritos, noticias y sitios web desde cualquier lugar del mundo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized Security Needs Checklist -->
+        <section class="section-padded">
+            <h2 class="text-center">
+                ¿Necesitas una VPN? Marca tus hábitos en línea:
+            </h2>
+            <p class="subtitle-text text-center">
+                Selecciona las actividades que realizas habitualmente para ver cómo NordVPN puede protegerte.
+            </p>
+            <div class="checklist-card">
+                <div class="checklist-grid">
+                    <div class="check-item">
+                        <input type="checkbox" id="publicWifi" class="form-checkbox"
+                            data-recommendation="Usas Wi-Fi público frecuentemente (cafeterías, aeropuertos, hoteles)."
+                            data-detail="Las redes Wi-Fi públicas son un imán para los ciberdelincuentes. NordVPN cifra tu conexión, haciéndola impenetrable." />
+                        <label for="publicWifi">Me conecto a Wi-Fi públicos</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="travel" class="form-checkbox"
+                            data-recommendation="Viajas y accedes a contenido de tu país de origen."
+                            data-detail="Algunos servicios en línea están restringidos geográficamente. NordVPN te permite cambiar tu ubicación virtual para acceder a ellos." />
+                        <label for="travel">Viajo al extranjero</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="streaming" class="form-checkbox"
+                            data-recommendation="Quieres acceder a más contenido de streaming."
+                            data-detail="Con NordVPN, puedes desbloquear librerías de contenido de diferentes países, expandiendo tus opciones de entretenimiento." />
+                        <label for="streaming">Me gusta el streaming</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="privacyConcern" class="form-checkbox"
+                            data-recommendation="Te preocupa que tu proveedor de internet o terceros rastreen tu actividad."
+                            data-detail="NordVPN enmascara tu dirección IP y cifra tu tráfico, haciendo tu actividad online privada." />
+                        <label for="privacyConcern">Me importa mucho mi privacidad</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="onlineShopping" class="form-checkbox"
+                            data-recommendation="Compras o haces transacciones bancarias en línea."
+                            data-detail="Proteger tus datos financieros es crucial. NordVPN añade una capa extra de seguridad para tus transacciones." />
+                        <label for="onlineShopping">Realizo compras o banca online</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="downloads" class="form-checkbox"
+                            data-recommendation="Descargas archivos frecuentemente (especialmente P2P)."
+                            data-detail="NordVPN oculta tu dirección IP real, añadiendo anonimato y seguridad a tus descargas." />
+                        <label for="downloads">Descargo archivos</label>
+                    </div>
+                </div>
+                <div id="recommendationResult" class="recommendation-output">
+                    <p class="font-semibold">Tu recomendación de seguridad personalizada aparecerá aquí.</p>
+                    <ul id="recommendationList"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section-padded text-center">
+            <h2>
+                ¡Protege tu Mundo Digital Hoy!
+            </h2>
+            <p class="subtitle-text">
+                La seguridad de tu conexión es tan importante como la fortaleza de tus contraseñas. Complementa tu
+                ciberseguridad con la protección líder de NordVPN.
+            </p>
+            <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=125429&url_id=502" target="_blank" class="btn-primary">
+                <i class="fas fa-shield-alt"></i> Obtén NordVPN Ahora
+            </a>
+        </section>
+
+        <!-- Transparency Disclosure -->
+        <section class="section-padded transparency-disclosure">
+            <p>
+                <i class="fas fa-info-circle"></i>
+                **Nota de Transparencia:** Los enlaces a NordVPN en esta página son enlaces de afiliado. Si decides realizar una
+                compra a través de ellos, BusinessPass podría recibir una pequeña comisión. Esto nos ayuda a mantener nuestro
+                generador de contraseñas gratuito y a seguir desarrollando herramientas para tu seguridad digital. ¡Apreciamos
+                tu apoyo!
+            </p>
+            <p>
+                <i class="fas fa-handshake"></i>
+                Somos un orgulloso partner del programa de afiliados de Nord Security.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer - Contenido COMPLETO directamente en el HTML -->
+    <footer class="site-footer">
+        <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
+        <div class="badge">Para Uso Empresarial</div>
+        <div class="footer-links">
+            <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank">Licencia MIT</a>
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="terms.html">Términos de Servicio</a>
+            <a href="#" id="support-link">Apoya el Proyecto</a>
+        </div>
+    </footer>
+    <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>¡Apoya el Proyecto BusinessPass!</h2>
+            <p>Tu apoyo ayuda a mantener y mejorar este servicio.</p>
+            <p>Puedes realizar una donación directa a través de:</p>
+            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-button mercadopago-button">
+                <i class="fas fa-hand-holding-usd"></i> Donar con Mercado Pago (Uruguay)
+            </a>
+            <a href="https://paypal.me/francap15" target="_blank" class="donation-button paypal-button">
+                <i class="fab fa-paypal"></i> Donar con PayPal
+            </a>
+            <p class="small-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
+        </div>
+    </div>
+    <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
+        <button id="acceptCookies">Aceptar</button>
+    </div>
+    <script type="module" src="../../js/main.js"></script> 
+
+    <!-- JavaScript específico de esta página (interacciones del diagrama y checklist) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const securityDiagram = document.getElementById('securityDiagram');
+            const vpnTunnel = document.getElementById('vpnTunnel');
+
+            if (securityDiagram) {
+                securityDiagram.addEventListener('click', () => {
+                    securityDiagram.classList.toggle('unencrypted');
+                    securityDiagram.classList.toggle('encrypted');
+                    vpnTunnel.classList.toggle('hidden');
+                });
+            }
+
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.querySelector('.feature-short').classList.add('hidden');
+                    card.querySelector('.feature-detail').classList.remove('hidden');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.querySelector('.feature-short').classList.remove('hidden');
+                    card.querySelector('.feature-detail').classList.add('hidden');
+                });
+            });
+
+
+            const checkItems = document.querySelectorAll('.checklist-card input[type="checkbox"]');
+            const recommendationResult = document.getElementById('recommendationResult');
+            const recommendationList = document.getElementById('recommendationList');
+
+            const updateRecommendation = () => {
+                const checkedDetails = [];
+                checkItems.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        checkedDetails.push(checkbox.dataset.detail);
+                    }
+                });
+
+                recommendationList.innerHTML = ''; // Limpiar recomendaciones previas
+
+                if (checkedDetails.length > 0) {
+                    recommendationResult.innerHTML = '<p class="font-semibold">¡Basado en tus hábitos, una VPN como NordVPN es altamente recomendable para ti! Aquí te decimos por qué:</p><ul id="recommendationList" class="mt-2 list-disc list-inside text-sm"></ul>';
+                    const currentRecommendationList = document.getElementById('recommendationList');
+                    checkedDetails.forEach(detail => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = detail;
+                        currentRecommendationList.appendChild(listItem);
+                    });
+                    recommendationResult.classList.remove('hidden');
+                } else {
+                    recommendationResult.innerHTML = '<p class="font-semibold">Tu recomendación de seguridad personalizada aparecerá aquí.</p><ul id="recommendationList" class="mt-2 list-disc list-inside text-sm"></ul>';
+                }
+            };
+
+            if (checkItems.length > 0) {
+                checkItems.forEach(checkbox => {
+                    checkbox.addEventListener('change', updateRecommendation);
+                });
+                updateRecommendation(); // Actualización inicial al cargar la página
+            }
+        });
+    </script>
+</body>
+</html>
