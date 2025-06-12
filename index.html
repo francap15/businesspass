@@ -17,7 +17,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preload" href="styless.css" as="style">
+    <link rel="preload" href="./css/styless.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
 
     <link rel="shortcut icon" href="shield-solid.svg" type="image/x-icon">
@@ -34,7 +34,7 @@
     }
     </script>
 
-    <link href="styless.css" rel="stylesheet">
+    <link href="css/styless.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
@@ -51,6 +51,7 @@
     </script>
 </head>
 <body>
+    <!-- Navbar - Contenido COMPLETO directamente en el HTML -->
     <nav class="main-nav">
         <div class="nav-content">
             <a href="index.html" class="nav-logo">
@@ -83,7 +84,8 @@
         </div>
 
         <div class="options">
-            <div id="regular-password-options" class="options-grid"> <div class="option">
+            <div id="regular-password-options" class="options-grid">
+                <div class="option">
                     <input type="checkbox" id="uppercase" checked>
                     <label for="uppercase">Mayúsculas (A-Z)</label>
                 </div>
@@ -186,6 +188,7 @@
         </article>
     </main>
 
+    <!-- Footer - Contenido COMPLETO directamente en el HTML -->
     <footer class="site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
         <div class="badge">Para Uso Empresarial</div>
@@ -193,9 +196,11 @@
             <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank">Licencia MIT</a>
             <a href="privacy.html">Política de Privacidad</a>
             <a href="terms.html">Términos de Servicio</a>
-            <a href="#" id="support-link">Apoya el Proyecto</a> </div>
+            <a href="#" id="support-link">Apoya el Proyecto</a>
+        </div>
     </footer>
 
+    <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
     <div id="donationModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -212,11 +217,13 @@
         </div>
     </div>
 
+    <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
     <div class="cookie-banner" id="cookieBanner">
         <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
         <button id="acceptCookies">Aceptar</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Carga el script principal como un módulo ES6 -->
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
