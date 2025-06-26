@@ -25,12 +25,15 @@
     <title>Balter Velázquez | Creador de BusinessPass - Pasión por la Ciberseguridad y el Desarrollo</title>
     
     <!-- Preloads -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
     <link rel="preload" href="css/styless.css" as="style">
     <link rel="preload" href="assets/images/FotoUtec.jpg" as="image">
-    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style">
+
+    <!-- Hojas de estilo -->
     <link rel="stylesheet" href="./css/styless.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG28R51V9C"></script>
@@ -43,34 +46,39 @@
     </script>
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973"crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">
+    <!-- Barra de navegación principal -->
+    <nav class="app-nav-bar">
+        <div class="nav-wrapper">
+            <a href="index.html" class="site-logo">
                 <i class="fas fa-shield-alt"></i> BusinessPass
             </a>
-            <div class="nav-links">
+            <div class="nav-list">
                 <a href="index.html">Inicio</a>
                 <a href="blog.html">Blog</a>
+                <a href="about.html">Sobre Mí</a>
                 <a href="faq.html">FAQ</a>
                 <a href="assets/pages/api.html">API</a>
             </div>
-            <button class="nav-toggle" aria-label="Menú">
+            <button class="nav-toggle-btn" aria-label="Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <main class="container legal-container about-page-content">
+    <!-- Contenido principal de la página "Sobre Mí" -->
+    <main class="app-main-content legal-container about-page-content">
         <h1><i class="fas fa-user-circle"></i> Conoce a Balter Velázquez</h1>
-        <p class="subtitle">Creador de BusinessPass y apasionado por la tecnología</p>
+        <p class="app-subtitle">Creador de BusinessPass y apasionado por la tecnología</p>
         
         <div class="profile-section">
-            <div class="profile-image-container" style="text-align: center; margin: 2rem;">
-                <a href="https://baltervelazquez-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer"><img src="assets/images/FotoUtec.jpg" 
-                alt="Balter Velázquez - Estudiante de TI y creador de BusinessPass" style="max-width: 300px; border-radius: 5%; border: 3px solid var(--primary);"></a>
+            <div class="profile-image-container">
+                <a href="https://baltervelazquez-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/images/FotoUtec.jpg" 
+                    alt="Balter Velázquez - Estudiante de TI y creador de BusinessPass">
+                </a>
             </div>
             <div class="profile-text">
                 <p>¡Hola! Soy Balter Velázquez, y mi viaje en el mundo de la tecnología comenzó con una profunda curiosidad por cómo funcionan las cosas y, más importante, cómo podemos hacerlas más seguras. Actualmente, soy un apasionado estudiante de Tecnologías de la Información en UTEC (Universidad Tecnológica del Uruguay), donde he tenido la oportunidad de profundizar mi interés por la ciberseguridad y el desarrollo de soluciones prácticas que realmente marquen la diferencia.</p>
@@ -103,53 +111,58 @@
             </ul>
             <p>Si tienes alguna idea, consulta, propuesta de colaboración o simplemente quieres saludar, <strong>¡no dudes en contactarme!</strong></p>
             <div class="contact-buttons">
-                <a href="mailto:balter.contacto@gmail.com" class="cta-button email-button">
-                    <i class="fas fa-envelope"></i>Envíame un Correo
-                </a><br>
-                <a href="https://www.linkedin.com/in/balter-velázquez/" target="_blank" class="cta-button linkedin-button" rel="noopener noreferrer">
+                <a href="mailto:balter.contacto@gmail.com" class="resource-action-btn email-button">
+                    <i class="fas fa-envelope"></i> Envíame un Correo
+                </a>
+                <a href="https://www.linkedin.com/in/balter-velázquez/" target="_blank" class="resource-action-btn linkedin-button" rel="noopener noreferrer">
                     <i class="fab fa-linkedin"></i> Conecta en LinkedIn
-                </a><br>
-                <a href="https://github.com/francap15/businesspass" target="_blank" class="cta-button github-button" rel="noopener noreferrer">
+                </a>
+                <a href="https://github.com/francap15/businesspass" target="_blank" class="resource-action-btn github-button" rel="noopener noreferrer">
                     <i class="fab fa-github"></i> Ve a mi GitHub
-                </a><br>
-                <a href="https://baltervelazquez-portfolio.netlify.app/" target="_blank" class="cta-button portfolio-button" rel="noopener noreferrer">
-                    <i class="fas fa-briefcase"></i>Mi Portfolio
+                </a>
+                <a href="https://baltervelazquez-portfolio.netlify.app/" target="_blank" class="resource-action-btn portfolio-button" rel="noopener noreferrer">
+                    <i class="fas fa-briefcase"></i> Mi Portfolio
                 </a>
             </div>
         </div>
     </main>
 
-    <footer class="site-footer">
+    <!-- Pie de página del sitio -->
+    <footer class="app-site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
-        <div class="badge">Para Uso Empresarial</div>
-        <div class="footer-links">
+        <div class="app-badge">Para Uso Empresarial</div>
+        <div class="footer-navigation-links">
             <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Licencia MIT</a>
             <a href="privacy.html">Política de Privacidad</a>
             <a href="terms.html">Términos de Servicio</a>
-            <a href="#" id="support-link">Apoya el Proyecto</a>
+            <a href="#" id="support-project-link">Apoya el Proyecto</a>
         </div>
     </footer>
 
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+    <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
+    <div id="support-dialog-box" class="app-modal">
+        <div class="modal-content-area">
+            <span class="modal-close-button">&times;</span>
             <h2>¡Apoya el Proyecto BusinessPass!</h2>
             <p>Tu apoyo ayuda a mantener y mejorar este servicio.</p>
             <p>Puedes realizar una donación directa a través de:</p>
-            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-button mercadopago-button" rel="noopener noreferrer">
+            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-action-btn mercadopago-btn" rel="noopener noreferrer">
                 <i class="fas fa-hand-holding-usd"></i> Donar con Mercado Pago (Uruguay)
             </a>
-            <a href="https://paypal.me/francap15" target="_blank" class="donation-button paypal-button" rel="noopener noreferrer">
+            <a href="https://paypal.me/francap15" target="_blank" class="donation-action-btn paypal-btn" rel="noopener noreferrer">
                 <i class="fab fa-paypal"></i> Donar con PayPal
             </a>
-            <p class="small-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
+            <p class="small-info-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
         </div>
     </div>
 
-    <div class="cookie-banner" id="cookieBanner">
+    <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
+    <div class="privacy-consent-banner" id="app-alert-panel">
         <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
-        <button id="acceptCookies">Aceptar</button>
+        <button id="panel-confirm-btn" class="accept-consent-btn">Aceptar</button>
     </div>
+    
+    <!-- Script principal de la aplicación -->
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

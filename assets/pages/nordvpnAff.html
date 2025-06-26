@@ -13,18 +13,23 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="../../assets/images/icon-192x192.png">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://businesspassgen.netlify.app/assets/pages/nordvpnAff.html" />
+
     <!-- Preconexiones y precargas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="../../css/styless.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;500;600&display=swap" as="style">
     
     <!-- Fuentes: Inter para texto general, Poppins para títulos (consistente con el blog) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Hoja de estilos principal de tu sitio. Carga styless.css -->
+    <link href="../../css/styless.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../../shield-solid.svg" type="image/x-icon">
 
     <!-- Google Ads -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
@@ -36,41 +41,37 @@
         gtag('js', new Date());
         gtag('config', 'G-SG28R51V9C');
     </script>
-
-    <!-- Hoja de estilos principal de tu sitio. Carga styless.css -->
-    <link href="../../css/styless.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../../shield-solid.svg" type="image/x-icon">
 </head>
 <body class="antialiased leading-normal">
 
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="../../index.html" class="nav-logo">
+    <nav class="app-nav-bar">
+        <div class="nav-wrapper">
+            <a href="../../index.html" class="site-logo">
                 <i class="fas fa-shield-alt"></i> BusinessPass
             </a>
-            <div class="nav-links">
+            <div class="nav-list">
                 <a href="../../index.html">Inicio</a>
                 <a href="../../blog.html">Blog</a>
                 <a href="../../about.html">Sobre Mí</a>
                 <a href="../../faq.html">FAQ</a>
                 <a href="../pages/api.html">API</a>
             </div>
-            <button class="nav-toggle" aria-label="Menú">
+            <button class="nav-toggle-btn" aria-label="Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <main class="container legal-container">
+    <main class="app-main-content legal-container">
         <!-- Introduction Section -->
         <section class="section-padded">
             <h1>
-                <span class="text-blue-600">🔒</span> Eleva tu Seguridad Digital con NordVPN
+                <span class="text-accent-color">🔒</span> Eleva tu Seguridad Digital con NordVPN
             </h1>
             <p class="subtitle-text">
                 En BusinessPass, te equipamos con contraseñas robustas. Pero la seguridad digital es un ecosistema. Descubre cómo una VPN de confianza como NordVPN complementa tu fortaleza al proteger tu conexión a internet, un eslabón crucial en la cadena de tu ciberseguridad.
             </p>
-            <p > <!-- Using text-muted for this general text -->
+            <p class="text-muted"> <!-- Using text-muted for this general text -->
                 Esta página interactiva te guiará a través de los beneficios de NordVPN y cómo puede integrarse a tu rutina de seguridad.
             </p>
         </section>
@@ -86,7 +87,7 @@
             <div id="securityDiagram" class="unencrypted security-diagram-container">
                 <div class="diagram-flex-group">
                     <div class="diagram-box">
-                        <span class="text-4xl">💻</span>
+                        <span>💻</span>
                         <p>Tu Dispositivo</p>
                     </div>
                     <div class="diagram-arrow-group">
@@ -94,7 +95,7 @@
                         <span class="encryption-line">Conexión Insegura (HTTP)</span>
                     </div>
                     <div class="diagram-box">
-                        <span class="text-4xl">🌐</span>
+                        <span>🌐</span>
                         <p>Internet</p>
                     </div>
                     <div class="diagram-arrow-group">
@@ -102,7 +103,7 @@
                         <span class="encryption-line">Acceso Libre</span>
                     </div>
                     <div class="diagram-box">
-                        <span class="text-4xl">🔓</span>
+                        <span>🔓</span>
                         <p>Tus Datos Expuestos</p>
                     </div>
                 </div>
@@ -123,7 +124,7 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon-title">
-                        <span class="text-blue-600">🔒</span>
+                        <span>🔒</span>
                         <h3>Cifrado de Grado Militar</h3>
                     </div>
                     <p class="feature-short">
@@ -135,7 +136,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon-title">
-                        <span class="text-blue-600">🕵️</span>
+                        <span>🕵️</span>
                         <h3>Política de No Registros (No-Logs)</h3>
                     </div>
                     <p class="feature-short">
@@ -147,7 +148,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon-title">
-                        <span class="text-blue-600">⚡</span>
+                        <span>⚡</span>
                         <h3>Velocidad y Fiabilidad</h3>
                     </div>
                     <p class="feature-short">
@@ -159,7 +160,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon-title">
-                        <span class="text-blue-600">📱</span>
+                        <span>📱</span>
                         <h3>Fácil de Usar y Multiplataforma</h3>
                     </div>
                     <p class="feature-short">
@@ -171,7 +172,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon-title">
-                        <span class="text-blue-600">🚫</span>
+                        <span>🚫</span>
                         <h3>Threat Protection</h3>
                     </div>
                     <p class="feature-short">
@@ -183,7 +184,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon-title">
-                        <span class="text-blue-600">🌍</span>
+                        <span>🌍</span>
                         <h3>Acceso a Contenido Global</h3>
                     </div>
                     <p class="feature-short">
@@ -259,7 +260,7 @@
                 La seguridad de tu conexión es tan importante como la fortaleza de tus contraseñas. Complementa tu
                 ciberseguridad con la protección líder de NordVPN.
             </p>
-            <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=125429&url_id=502" target="_blank" class="btn-primary">
+            <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=125429&url_id=502" target="_blank" class="resource-action-btn">
                 <i class="fas fa-shield-alt"></i> Obtén NordVPN Ahora
             </a>
         </section>
@@ -280,38 +281,42 @@
         </section>
     </main>
 
-    <!-- Footer - Contenido COMPLETO directamente en el HTML -->
-    <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="app-site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
-        <div class="badge">Para Uso Empresarial</div>
-        <div class="footer-links">
-            <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank">Licencia MIT</a>
-            <a href="privacy.html">Política de Privacidad</a>
-            <a href="terms.html">Términos de Servicio</a>
-            <a href="#" id="support-link">Apoya el Proyecto</a>
+        <div class="app-badge">Para Uso Empresarial</div>
+        <div class="footer-navigation-links">
+            <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Licencia MIT</a>
+            <a href="../../privacy.html">Política de Privacidad</a>
+            <a href="../../terms.html">Términos de Servicio</a>
+            <a href="#" id="support-project-link">Apoya el Proyecto</a>
         </div>
     </footer>
-    <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+
+    <!-- Donation Modal -->
+    <div id="support-dialog-box" class="app-modal">
+        <div class="modal-content-area">
+            <span class="modal-close-button">&times;</span>
             <h2>¡Apoya el Proyecto BusinessPass!</h2>
             <p>Tu apoyo ayuda a mantener y mejorar este servicio.</p>
             <p>Puedes realizar una donación directa a través de:</p>
-            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-button mercadopago-button">
+            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-action-btn mercadopago-btn" rel="noopener noreferrer">
                 <i class="fas fa-hand-holding-usd"></i> Donar con Mercado Pago (Uruguay)
             </a>
-            <a href="https://paypal.me/francap15" target="_blank" class="donation-button paypal-button">
+            <a href="https://paypal.me/francap15" target="_blank" class="donation-action-btn paypal-btn" rel="noopener noreferrer">
                 <i class="fab fa-paypal"></i> Donar con PayPal
             </a>
-            <p class="small-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
+            <p class="small-info-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
         </div>
     </div>
-    <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
-    <div class="cookie-banner" id="cookieBanner">
-        <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
-        <button id="acceptCookies">Aceptar</button>
+
+    <!-- Cookie Banner -->
+    <div class="privacy-consent-banner" id="app-alert-panel">
+        <p>Usamos cookies esenciales para el funcionamiento. <a href="../../privacy.html">Más información</a></p>
+        <button id="panel-confirm-btn" class="accept-consent-btn">Aceptar</button>
     </div>
+    
+    <!-- Script principal de la aplicación -->
     <script type="module" src="../../js/main.js"></script> 
 
     <!-- JavaScript específico de esta página (interacciones del diagrama y checklist) -->

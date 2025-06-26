@@ -48,6 +48,16 @@
     --recommendation-bg: var(--input-bg);
     --recommendation-border: var(--primary);
     --recommendation-text: var(--text-light);
+
+    /* Nuevos colores para botones de contacto en "Sobre Mí" */
+    --email-button-bg: #D9534F; /* Rojo suave */
+    --email-button-hover: #C9302C;
+    --linkedin-button-bg: #0077B5; /* Azul LinkedIn */
+    --linkedin-button-hover: #005582;
+    --github-button-bg: #333; /* Gris oscuro GitHub */
+    --github-button-hover: #000;
+    --portfolio-button-bg: #6C757D; /* Gris medio */
+    --portfolio-button-hover: #5A6268;
 }
 
 * {
@@ -69,7 +79,7 @@ body {
 }
 
 /* --- Main Navigation Styles --- */
-.main-nav {
+.app-nav-bar { /* Renombrado de .main-nav */
     position: fixed;
     top: 0;
     left: 0;
@@ -82,7 +92,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.nav-content {
+.nav-wrapper { /* Renombrado de .nav-content */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,7 +101,7 @@ body {
     padding: 0 1.5rem;
 }
 
-.nav-logo {
+.site-logo { /* Renombrado de .nav-logo */
     color: var(--text-light);
     font-weight: 600;
     font-size: 1.2rem;
@@ -101,12 +111,12 @@ body {
     gap: 0.5rem;
 }
 
-.nav-links {
+.nav-list { /* Renombrado de .nav-links */
     display: flex;
     gap: 1.5rem;
 }
 
-.nav-links a {
+.nav-list a { /* Renombrado de .nav-links a */
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
@@ -114,11 +124,11 @@ body {
     padding: 0.5rem 0;
 }
 
-.nav-links a:hover {
+.nav-list a:hover { /* Renombrado de .nav-links a:hover */
     color: var(--primary);
 }
 
-.nav-toggle {
+.nav-toggle-btn { /* Renombrado de .nav-toggle */
     display: none;
     background: none;
     border: none;
@@ -129,18 +139,18 @@ body {
 }
 
 /* Dynamic Navbar States */
-.main-nav.scrolled {
+.app-nav-bar.scrolled { /* Renombrado de .main-nav.scrolled */
     background: rgba(26, 26, 46, 0.98);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
     padding: 0.3rem 0;
 }
 
-.main-nav.hidden-nav {
+.app-nav-bar.hidden-nav { /* Renombrado de .main-nav.hidden-nav */
     transform: translateY(-100%);
 }
 
 /* --- Main Content Container (General Dark Theme) --- */
-.container {
+.app-main-content { /* Renombrado de .container */
     width: 100%;
     max-width: 600px; /* Default max-width for main content */
     background: var(--card-bg);
@@ -149,6 +159,18 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     margin: 2rem auto;
     color: var(--text-light); /* Asegura que el texto dentro del container sea claro */
+}
+
+/* Estilo para las páginas legales/de contenido amplio */
+.legal-container {
+    max-width: 800px; /* Wider for blog posts, FAQ, About */
+    line-height: 1.8;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    color: var(--text-light);
 }
 
 /* --- General Headings & Text (Dark Theme) --- */
@@ -199,7 +221,7 @@ a:hover {
     text-decoration: underline;
 }
 
-.subtitle {
+.app-subtitle { /* Renombrado de .subtitle */
     color: var(--text-muted);
     margin-bottom: 2.5rem;
     font-weight: 400;
@@ -212,13 +234,13 @@ a:hover {
     color: var(--text-muted);
 }
 
-/* --- Form Controls --- */
-.control-group {
+/* --- Form Controls (Specific to Index.html) --- */
+.input-controls-group { /* Renombrado de .control-group */
     margin-bottom: 2rem;
 }
 
 label,
-.option label {
+.option-item label { /* Renombrado de .option label */
     display: block;
     margin-bottom: 0.75rem;
     font-weight: 500;
@@ -257,14 +279,14 @@ input[type="range"]::-moz-range-thumb {
     border: 3px solid var(--card-bg);
 }
 
-.length-display {
+.length-display-info { /* Renombrado de .length-display */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 0.5rem;
 }
 
-.length-value {
+.current-length-value { /* Renombrado de .length-value */
     font-weight: 600;
     background: var(--primary);
     color: white;
@@ -273,14 +295,15 @@ input[type="range"]::-moz-range-thumb {
     font-size: 0.9rem;
 }
 
-.options {
+.options-grid { /* Usado para `regular-password-options` y `passphrase-controls` */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* Aseguramos 2 columnas en escritorio para las opciones */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem; /* Ajuste si es necesario, basado en el nuevo HTML */
 }
 
-.option {
+.option-item { /* Renombrado de .option */
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -290,39 +313,43 @@ input[type="range"]::-moz-range-thumb {
     transition: transform 0.1s, opacity 0.1s;
 }
 
-.option input[type="checkbox"] {
+.option-item input[type="checkbox"] { /* Renombrado de .option input[type="checkbox"] */
     width: 18px;
     height: 18px;
     accent-color: var(--primary);
 }
 
-.option label {
+.option-item label { /* Renombrado de .option label */
     margin-bottom: 0;
     font-weight: 400;
 }
 
 /* --- Buttons --- */
 button {
-    background: var(--primary);
+    /* Fondo degradado para un look más moderno */
+    background: linear-gradient(145deg, var(--primary), var(--primary-hover));
     color: white;
     border: none;
     padding: 0.85rem 1.5rem;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 50px; /* Más redondeado para un efecto de "píldora" */
     cursor: pointer;
     font-weight: 500;
     width: 100%;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out; /* Transición más suave */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    /* Sombra más pronunciada en estado normal */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Pequeña sombra de texto */
 }
 
 button:hover {
-    background: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, var(--primary-hover), var(--primary)); /* Invierte el degradado en hover */
+    transform: translateY(-3px); /* Efecto de "levantar" más pronunciado */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra más grande en hover */
 }
 
 button:disabled {
@@ -330,31 +357,37 @@ button:disabled {
     cursor: not-allowed;
     transform: translateY(0);
     box-shadow: none;
+    opacity: 0.7; /* Ligeramente transparente */
 }
 
 button#generate-btn {
     margin-bottom: 1.5rem;
 }
 
-button#download-btn {
-    background: var(--success);
+button.utility-action-btn#download-btn { /* Usando clase y ID */
+    /* Mantener estilo de botón general pero con color success */
+    background: var(--success); /* Mantiene el color base del success */
     margin-top: 1rem;
+    border-radius: 50px; /* Consistente con otros botones */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-button#download-btn:hover {
-    background: #3db4d3;
+button.utility-action-btn#download-btn:hover { /* Usando clase y ID */
+    background: #3db4d3; /* Un poco más oscuro que success para hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.fas {
+.fas, .far { /* Añadido .far para el ícono de copiar */
     margin-right: 0.5em;
 }
 
-/* --- Result Area --- */
-.result-area {
+/* --- Result Area (Specific to Index.html) --- */
+.output-display-area { /* Renombrado de .result-area */
     margin-bottom: 1.5rem;
 }
 
-.password-output-container {
+.password-display-wrapper { /* Renombrado de .password-output-container */
     position: relative;
     background: var(--input-bg);
     border: 1px solid var(--border-color);
@@ -364,7 +397,7 @@ button#download-btn:hover {
     min-height: 60px;
 }
 
-.password-result {
+.generated-password-output { /* Renombrado de .password-result */
     font-size: 1.1rem;
     word-break: break-all;
     max-height: 150px;
@@ -372,73 +405,75 @@ button#download-btn:hover {
     color: var(--text-light);
 }
 
-.password-result div {
+.generated-password-output div { /* Renombrado de .password-result div */
     padding: 0.25rem 0;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
-.password-result div:last-child {
+.generated-password-output div:last-child { /* Renombrado de .password-result div:last-child */
     border-bottom: none;
 }
 
-.copy-btn {
+.copy-action-btn { /* Renombrado de .copy-btn */
     position: absolute;
     right: 10px;
     top: 10px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15); /* Semitransparente como en el diseño original */
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--text-light);
     padding: 0.4rem 0.8rem;
-    border-radius: 6px;
+    border-radius: 6px; /* Mantener un poco redondeado */
     cursor: pointer;
-    width: auto;
+    width: auto; /* Mantener el ancho automático */
     font-size: 0.85rem;
     transition: background 0.2s ease, transform 0.1s, opacity 0.1s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
 }
 
-.copy-btn:hover {
+.copy-action-btn:hover { /* Renombrado de .copy-btn:hover */
     background: rgba(255, 255, 255, 0.25);
-    transform: translateY(0);
-    box-shadow: none;
+    transform: translateY(-1px); /* Sutil efecto de levantar */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3); /* Sombra ligeramente más pronunciada */
 }
 
-.copy-btn.copied {
+.copy-action-btn.copied { /* Renombrado de .copy-btn.copied */
     background-color: var(--success) !important;
     color: var(--dark-bg) !important;
 }
 
-.strength-meter {
+.security-strength-meter { /* Renombrado de .strength-meter */
     height: 6px;
     background: var(--input-bg);
     border-radius: 6px;
     overflow: hidden;
 }
 
-.strength-bar {
+.strength-indicator-bar { /* Renombrado de .strength-bar */
     height: 100%;
     width: 0%;
     background: var(--strength-weak);
     transition: all 0.3s ease-in-out;
 }
 
-/* --- Batch Mode Controls --- */
-.batch-controls {
+/* --- Batch Mode Controls (Specific to Index.html) --- */
+.batch-generation-controls { /* Renombrado de .batch-controls */
     display: none;
     margin-bottom: 2rem;
     background: var(--input-bg);
     padding: 1rem;
     border-radius: 8px;
+    margin-top: 1.5rem; /* Asegura espacio si aparece dinámicamente */
 }
 
-.batch-controls.show {
+.batch-generation-controls.show { /* Renombrado de .batch-controls.show */
     display: block;
 }
 
-.batch-controls label {
+.batch-generation-controls label { /* Renombrado de .batch-controls label */
     margin-bottom: 0.5rem;
 }
 
-.batch-controls input[type="number"] {
+.batch-generation-controls input[type="number"] { /* Renombrado de .batch-controls input[type="number"] */
     width: 100%;
     padding: 0.6rem;
     background: rgba(0, 0, 0, 0.2);
@@ -448,13 +483,13 @@ button#download-btn:hover {
     font-size: 1rem;
 }
 
-/* --- Passphrase Controls --- */
+/* --- Passphrase Controls (Specific to Index.html) --- */
 #passphrase-controls {
     display: none;
     background: var(--input-bg);
     padding: 1rem;
     border-radius: 8px;
-    margin-top: 1rem;
+    margin-top: 1.5rem; /* Asegura espacio si aparece dinámicamente */
 }
 
 #passphrase-controls.show {
@@ -476,25 +511,180 @@ button#download-btn:hover {
     margin-top: 0.5rem;
 }
 
-/* --- Legal/Blog Content Pages --- */
-.legal-container {
-    max-width: 800px; /* Wider for blog posts */
-    line-height: 1.8;
-    padding: 2.5rem;
-    margin: 2rem auto;
-    background: var(--card-bg);
+/* Separador visual para el blog en index.html */
+.separator-section {
+    width: 100%;
+    height: 1px; /* Línea visible */
+    background-color: var(--border-color); /* Color de línea */
+    margin: 2.5rem 0; /* Espaciado antes y después */
+}
+
+/* --- Blog Post Styles (for blog post listings and general articles) --- */
+.blog-section-title { /* Título principal de la página del blog */
+    margin-top: 2rem; /* Espaciado superior para el título del blog */
+    margin-bottom: 2rem; /* Espaciado inferior */
+    text-align: center; /* Centrar el título del blog */
+}
+
+.blog-entry { /* Renombrado de .blog-post */
+    background: var(--input-bg); /* Use input-bg for blog post cards */
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-entry:hover { /* Renombrado de .blog-post:hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.blog-entry h2 { /* Renombrado de .blog-post h2 */
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.blog-entry p { /* Renombrado de .blog-post p */
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.blog-entry a { /* Renombrado de .blog-post a */
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.blog-entry a:hover { /* Renombrado de .blog-post a:hover */
+    background: var(--primary-hover);
+    text-decoration: none;
+}
+
+/* Blog Post Page specific styles */
+.blog-post-page h1 {
+    text-align: left; /* Align H1 to left for article pages */
+    margin-bottom: 0.5rem;
+}
+.blog-post-page .app-subtitle {
+    text-align: left; /* Align subtitle to left for article pages */
+    margin-bottom: 2rem;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Espacio entre imagen y texto */
+    margin-bottom: 2.5rem;
+}
+
+.profile-image-container {
+    text-align: center;
+    margin: 0; /* Eliminar el margen redundante */
+}
+
+.profile-image-container img {
+    max-width: 250px; /* Tamaño máximo para la imagen en desktop */
+    width: 100%; /* Hace la imagen responsiva y se ajusta al contenedor */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 5%; /* Mantiene el borde redondeado */
+    border: 3px solid var(--primary); /* Mantiene el borde primario */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para la imagen */
+    transition: transform 0.3s ease;
+}
+
+.profile-image-container img:hover {
+    transform: scale(1.02); /* Pequeño efecto de zoom en hover */
+}
+
+.profile-text {
+    text-align: justify; /* Justificar el texto para mejor lectura */
+    color: var(--text-muted);
+}
+
+.cta-box.contact-me-box { /* Estilo para la caja de contacto en About */
+    background: var(--input-bg);
     border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.cta-box.contact-me-box h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.cta-box.contact-me-box p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.cta-box.contact-me-box ul {
+    list-style: none; /* Eliminar viñetas predeterminadas */
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.cta-box.contact-me-box ul li {
     color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
 }
 
-/* Ensure headings within legal-container follow the theme */
-.legal-container h1 {
-    text-align: left; /* Blog H1s are left aligned */
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: 0.75rem; /* Espacio entre los botones, reducido ligeramente */
+    margin-top: 2rem;
+}
+
+/* Botones de contacto individuales (extienden de resource-action-btn, pero se ajusta su tamaño) */
+.contact-buttons .resource-action-btn { /* Apunta a los botones dentro de .contact-buttons */
+    padding: 0.7rem 1.2rem; /* Reduce el padding para hacerlos más chicos */
+    font-size: 0.95rem; /* Reduce el tamaño de la fuente */
+    width: auto; /* Permite que el ancho se ajuste al contenido, no 100% */
+    max-width: 220px; /* Limita el ancho máximo para que no se extiendan demasiado */
+}
+
+.resource-action-btn.email-button {
+    background-color: var(--email-button-bg);
+}
+.resource-action-btn.email-button:hover {
+    background-color: var(--email-button-hover);
+}
+
+.resource-action-btn.linkedin-button {
+    background-color: var(--linkedin-button-bg);
+}
+.resource-action-btn.linkedin-button:hover {
+    background-color: var(--linkedin-button-hover);
+}
+
+.resource-action-btn.github-button {
+    background-color: var(--github-button-bg);
+}
+.resource-action-btn.github-button:hover {
+    background-color: var(--github-button-hover);
+}
+
+.resource-action-btn.portfolio-button {
+    background-color: var(--portfolio-button-bg);
+}
+.resource-action-btn.portfolio-button:hover {
+    background-color: var(--portfolio-button-hover);
 }
 
 
-/* --- FAQ Section --- */
+/* --- FAQ Page Specific Styles --- */
 .faq-section {
     margin-bottom: 2rem;
     padding-bottom: 1rem;
@@ -509,433 +699,89 @@ button#download-btn:hover {
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 0.8rem;
-    color: var(--text-light);
+    color: var(--text-light); /* Asegurar que el título de la pregunta sea claro */
 }
 
 .faq-section p {
     margin-bottom: 0;
 }
 
-/* --- Blog Post Styles (for blog post listings) --- */
-.blog-post {
-    background: var(--input-bg); /* Use input-bg for blog post cards */
+.api-page-content h1,
+.api-page-content h2,
+.api-page-content .app-subtitle {
+    text-align: center; /* Asegurar centrado para estos elementos en la página API */
+}
+
+.info-section {
+    background: var(--input-bg);
     border-radius: 8px;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-.blog-post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.blog-post h2 {
-    font-size: 1.5rem;
-    color: var(--primary);
+.info-section p {
+    color: var(--text-muted);
+    line-height: 1.6;
     margin-bottom: 0.75rem;
 }
-
-.blog-post p {
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
-
-.blog-post a {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.2s ease;
-}
-
-.blog-post a:hover {
-    background: var(--primary-hover);
-    text-decoration: none;
-}
-
-/* --- Footer Styles --- */
-.site-footer {
-    margin-top: auto;
-    padding: 2rem 1rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    text-align: center;
-    width: 100%;
-    background: var(--card-bg);
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.site-footer p {
-    margin-bottom: 0.8rem;
-}
-
-.site-footer .badge {
-    margin-bottom: 1rem;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-size: 0.8rem;
-}
-
-.footer-links a:hover {
-    color: var(--primary-hover);
-    text-decoration: underline;
-}
-
-/* --- Cookie Banner --- */
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background: var(--card-bg);
-    padding: 1rem 2rem;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-    color: var(--text-light);
-}
-
-.cookie-banner p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-.cookie-banner a {
-    color: var(--primary);
-    text-decoration: none;
-    margin-left: 0.5rem;
-}
-
-.cookie-banner button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    width: auto;
-    transition: background 0.2s ease;
-}
-
-.cookie-banner button:hover {
-    background: var(--primary-hover);
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-    .nav-content {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: var(--card-bg);
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        clip-path: circle(0% at 90% -10%);
-        transition: clip-path 0.7s ease;
-        z-index: 999;
-    }
-
-    .nav-links.open {
-        clip-path: circle(150% at 50% 50%);
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    .main-nav.scrolled {
-        padding: 0.2rem 0;
-    }
-
-    .container {
-        padding: 1.5rem;
-        margin: 1.5rem auto;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    .options {
-        grid-template-columns: 1fr;
-    }
-
-    .copy-btn {
-        position: static;
-        margin-top: 1rem;
-        width: 100%;
-    }
-
-    .password-output-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cookie-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-    }
-
-    .cookie-banner button {
-        width: 100%;
-    }
-}
-
-/* --- Mobile First Specific Adjustments (480px or less) --- */
-@media (max-width: 480px) {
-    body {
-        -webkit-text-size-adjust: 100%;
-    }
-
-    .container {
-        padding: 1rem !important;
-        margin: 0 auto 1rem auto;
-        border-radius: 0;
-    }
-
-    /* Tactile buttons and controls */
-    button,
-    .copy-btn,
-    .option {
-        min-height: 48px;
-    }
-
-    .option {
-        padding: 15px 10px !important;
-    }
-
-    input[type="checkbox"] {
-        width: 22px !important;
-        height: 22px !important;
-    }
-
-    /* Mobile results area */
-    .password-output-container {
-        padding: 0.8rem;
-        max-height: 40vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .password-result div {
-        padding: 12px 0;
-        font-size: 0.9rem;
-    }
-
-    /* Mobile navigation */
-    .main-nav {
-        padding: 0.5rem 0;
-    }
-
-    .nav-content {
-        padding: 0 1rem;
-    }
-
-    .nav-links a {
-        margin: 0.25rem 0;
-        padding: 0.5rem 1rem;
-    }
-}
-
-/* --- Highlighted Class (for JavaScript interaction) --- */
-.highlighted {
-    border: 2px solid var(--accent-color);
-    box-shadow: 0 0 6px var(--accent-color);
-}
-
-.options-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem;
-}
-
-.info-message {
-    background: rgba(67, 97, 238, 0.15);
-    border: 1px solid var(--primary);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
-    color: var(--text-light);
-    text-align: center;
-}
-
-.info-message h3 {
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.info-message p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.4;
+.info-section p:last-child {
     margin-bottom: 0;
 }
 
-/* --- Donation Modal Styles --- */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
+.feature-list.api-feature-list { /* Estilos para la lista de características de la API */
+    list-style: none; /* Eliminar viñetas predeterminadas */
+    padding: 0;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espacio entre los ítems de la lista */
+}
+
+.feature-list.api-feature-list li {
+    background: var(--input-bg);
+    border-left: 4px solid var(--primary); /* Barra de color a la izquierda */
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
     align-items: center;
-    padding: 1rem;
+    gap: 1rem;
+    color: var(--text-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.modal-content {
-    background-color: var(--card-bg); /* Uses dark card bg for modal, consistent with existing site */
-    margin: auto;
-    padding: 2.5rem;
+.feature-list.api-feature-list li i {
+    color: var(--primary); /* Color primario para los iconos de la lista */
+    font-size: 1.5rem;
+}
+
+.feature-list.api-feature-list li strong {
+    color: var(--primary); /* Resaltar el texto fuerte */
+}
+
+.call-to-action-api {
+    background: var(--card-bg); /* Fondo de tarjeta para el CTA */
     border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    position: relative;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     text-align: center;
-    animation: fadeInScale 0.3s ease-out forwards;
 }
 
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.modal-content h2 {
-    color: var(--primary); /* Uses dark theme primary color */
+.call-to-action-api h3 {
+    color: var(--primary);
     margin-bottom: 1rem;
-    font-size: 1.8rem;
 }
 
-.modal-content p {
-    color: var(--text-muted); /* Uses dark theme muted text color */
+.call-to-action-api p {
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.5;
 }
 
-.close-button {
-    color: var(--text-muted);
-    font-size: 2.5rem;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.donation-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    margin: 1rem auto;
-    width: 80%;
-    max-width: 300px;
-    transition: all 0.2s ease-in-out;
-}
-
-.donation-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-}
-
-.mercadopago-button {
-    background-color: var(--mercadopago-blue);
-    color: white;
-}
-
-.mercadopago-button:hover {
-    background-color: var(--mercadopago-blue-hover);
-}
-
-.paypal-button {
-    background-color: var(--paypal-blue);
-    color: white;
-}
-
-.paypal-button:hover {
-    background-color: var(--paypal-blue-hover);
-}
-
-.small-text {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 1.5rem;
-}
-
-/* Responsive adjustments for modal */
-@media (max-width: 480px) {
-    .modal-content {
-        padding: 1.5rem;
-    }
-
-    .modal-content h2 {
-        font-size: 1.5rem;
-    }
-
-    .donation-button {
-        font-size: 1rem;
-        padding: 0.7rem 1rem;
-        width: 100%;
-    }
-}
-
-/* ===================================== */
-/* --- ESTILOS ESPECÍFICOS DE LA PÁGINA NORDVPN (AHORA CON TEMA OSCURO) --- */
-
+/* --- Sección de Recurso de Seguridad (NordVPN) --- */
 /* Sección general de contenido con padding */
 .section-padded {
     margin-bottom: 2.5rem; /* Espacio entre secciones */
@@ -944,7 +790,7 @@ button#download-btn:hover {
 }
 .section-padded:last-of-type {
     margin-bottom: 0;
-    padding-bottom: 1;
+    padding-bottom: 0; /* Changed from 1 to 0 for consistency */
     border-bottom: none;
 }
 
@@ -1159,68 +1005,58 @@ button#download-btn:hover {
     grid-template-columns: 1fr;
     gap: 1rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .checklist-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Elemento individual de la lista de verificación */
 .check-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    background-color: var(--input-bg);
     padding: 0.75rem;
-    background: var(--input-bg);
     border-radius: 6px;
-    transition: background 0.2s ease, transform 0.1s;
-}
-.check-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-.check-item label {
-    margin-bottom: 0;
-    font-weight: 400;
-    color: var(--text-light); /* Texto claro para las etiquetas */
-    cursor: pointer;
+    color: var(--text-light);
+    font-weight: 500;
 }
 .check-item input[type="checkbox"] {
+    accent-color: var(--primary); /* Color del checkbox */
     width: 20px;
     height: 20px;
-    accent-color: var(--primary); /* Color del checkbox */
-    cursor: pointer;
+    flex-shrink: 0; /* Evita que el checkbox se encoja */
 }
-.check-item input[type="checkbox"]:checked + label {
-    font-weight: 600;
-    color: var(--primary); /* Resaltar etiqueta cuando está marcada */
+.check-item label {
+    margin-bottom: 0; /* Eliminar margen inferior de label */
 }
 
-/* Salida de recomendación */
 .recommendation-output {
     margin-top: 2rem;
-    padding: 1.5rem;
-    border-radius: 8px;
     background-color: var(--recommendation-bg);
     border: 1px solid var(--recommendation-border);
+    border-radius: 8px;
+    padding: 1.5rem;
     color: var(--recommendation-text);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.recommendation-output p.font-semibold { /* No Tailwind classes, so directly style */
+.recommendation-output p {
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--primary); /* Usar primary para el encabezado de recomendación */
+    color: var(--text-light);
+    margin-bottom: 1rem;
 }
 .recommendation-output ul {
-    margin-left: 1.25rem; /* Ajustar sangría de lista */
+    list-style: disc; /* Vuelven las viñetas a la lista de recomendaciones */
+    margin-left: 1.25rem; /* Ajuste para el espaciado de la lista */
+    color: var(--text-muted); /* Texto atenuado para los ítems de la lista */
 }
-.recommendation-output li {
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-    color: var(--text-muted); /* Texto de detalle de recomendación */
+.recommendation-output ul li {
+    margin-bottom: 0.5rem;
 }
 
-/* Botón de Call to Action */
-.btn-primary {
+/* General CTA button (used across pages) */
+.resource-action-btn { /* Renombrado de .btn-primary */
     display: inline-flex;
     align-items: center;
     padding: 1rem 2rem;
@@ -1233,16 +1069,16 @@ button#download-btn:hover {
     text-decoration: none;
     transition: all 0.3s ease;
 }
-.btn-primary:hover {
+.resource-action-btn:hover { /* Renombrado de .btn-primary:hover */
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
     transform: translateY(-3px); /* hover:-translate-y-1 */
     background-color: var(--primary-hover);
 }
-.btn-primary i {
+.resource-action-btn i { /* Renombrado de .btn-primary i */
     margin-right: 0.75rem; /* Espacio para el icono */
 }
 
-/* Sección de Transparencia */
+
 .transparency-disclosure {
     text-align: center;
     font-size: 0.875rem; /* text-sm */
@@ -1264,130 +1100,431 @@ button#download-btn:hover {
     color: var(--primary); /* Usar primary for icons */
 }
 
-/* Media query adjustments for NordVPN specific styles */
-@media (max-width: 768px) {
-    .security-diagram-container {
-        padding: 1rem;
+/* --- Footer Styles --- */
+.app-site-footer { /* Renombrado de .site-footer */
+    margin-top: auto;
+    padding: 2rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    width: 100%;
+    background: var(--card-bg);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.app-site-footer p { /* Renombrado de .site-footer p */
+    margin-bottom: 0.8rem;
+    line-height: 1.5; /* Añadido para mejor legibilidad */
+}
+
+.app-badge { /* Renombrado de .site-footer .badge */
+    display: inline-block; /* Para que margin-bottom funcione correctamente */
+    margin-bottom: 1rem;
+    background-color: var(--primary); /* Un color de fondo para el badge */
+    color: var(--text-light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer-navigation-links { /* Renombrado de .footer-links */
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem; /* Espacio entre el badge y los enlaces */
+}
+
+.footer-navigation-links a { /* Renombrado de .footer-links a */
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 0.8rem;
+}
+
+.footer-navigation-links a:hover { /* Renombrado de .footer-links a:hover */
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* --- Donation Modal Styles --- */
+.app-modal { /* Renombrado de .modal */
+    display: none; /* Controlado por JS */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal-content-area { /* Renombrado de .modal-content */
+    background-color: var(--card-bg); /* Uses dark card bg for modal, consistent with existing site */
+    margin: auto;
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+    animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
     }
-    .diagram-box {
-        width: 100px;
-        height: 80px;
-    }
-    .diagram-box span {
-        font-size: 2rem;
-    }
-    .diagram-arrow {
-        font-size: 1.5rem;
-    }
-    .encryption-line {
-        font-size: 0.8rem;
-    }
-    .vpn-tunnel-message {
-        margin-top: 1.5rem;
-    }
-    .feature-card {
-        padding: 1rem;
-        min-height: 150px;
-    }
-    .feature-icon-title span {
-        font-size: 2rem;
-    }
-    .feature-icon-title h3 {
-        font-size: 1.1rem;
-    }
-    .feature-short, .feature-detail {
-        font-size: 0.9rem;
-    }
-    .checklist-card {
-        padding: 1.5rem;
-    }
-    .check-item {
-        padding: 0.6rem;
-    }
-    .check-item label {
-        font-size: 0.95rem;
-    }
-    .recommendation-output {
-        padding: 1rem;
-    }
-    .recommendation-output p.font-semibold {
-        font-size: 1rem;
-    }
-    .recommendation-output li {
-        font-size: 0.85rem;
-    }
-    .btn-primary {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-    .transparency-disclosure {
-        font-size: 0.8rem;
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-@media (max-width: 480px) {
-    .section-padded {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
+.modal-content-area h2 { /* Renombrado de .modal-content h2 */
+    color: var(--primary); /* Uses dark theme primary color */
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.modal-content-area p { /* Renombrado de .modal-content p */
+    color: var(--text-muted); /* Uses dark theme muted text color */
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.modal-close-button { /* Renombrado de .close-button */
+    color: var(--text-muted);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.donation-action-btn { /* Renombrado de .donation-button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 1rem auto;
+    width: 80%;
+    max-width: 300px;
+    transition: all 0.2s ease-in-out;
+}
+
+.donation-action-btn:hover { /* Renombrado de .donation-button:hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mercadopago-btn { /* Renombrado de .mercadopago-button */
+    background-color: var(--mercadopago-blue);
+    color: white;
+}
+
+.mercadopago-btn:hover { /* Renombrado de .mercadopago-button:hover */
+    background-color: var(--mercadopago-blue-hover);
+}
+
+.paypal-btn { /* Renombrado de .paypal-button */
+    background-color: var(--paypal-blue);
+    color: white;
+}
+
+.paypal-btn:hover { /* Renombrado de .paypal-button:hover */
+    background-color: var(--paypal-blue-hover);
+}
+
+.small-info-text { /* Renombrado de .small-text */
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+}
+
+/* --- Cookie Banner Styles --- */
+.privacy-consent-banner { /* Renombrado de .cookie-banner */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: var(--card-bg);
+    padding: 1rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    color: var(--text-light);
+}
+
+.privacy-consent-banner p { /* Renombrado de .cookie-banner p */
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.privacy-consent-banner a { /* Renombrado de .cookie-banner a */
+    color: var(--primary);
+    text-decoration: none;
+    margin-left: 0.5rem;
+}
+
+.accept-consent-btn { /* Renombrado de .cookie-banner button */
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    width: auto;
+    transition: background 0.2s ease;
+}
+
+/* Selector por ID para el botón de confirmar en el panel de alerta */
+#panel-confirm-btn { /* Renombrado de #acceptCookies */
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    width: auto;
+    transition: background 0.2s ease;
+}
+
+
+.accept-consent-btn:hover { /* Renombrado de .cookie-banner button:hover */
+    background: var(--primary-hover);
+}
+
+#panel-confirm-btn:hover { /* Hover para el botón de confirmar en el panel de alerta */
+    background: var(--primary-hover);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .nav-wrapper { /* Renombrado de .nav-content */
+        flex-direction: row;
+        justify-content: space-between;
     }
-    .security-diagram-container {
-        padding: 0.75rem;
+
+    .nav-list { /* Renombrado de .nav-links */
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--card-bg);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        clip-path: circle(0% at 90% -10%);
+        transition: clip-path 0.7s ease;
+        z-index: 999;
     }
-    .diagram-box {
-        width: 90px;
-        height: 70px;
-        font-size: 0.8rem;
+
+    .nav-list.open { /* Renombrado de .nav-links.open */
+        clip-path: circle(150% at 50% 50%);
     }
-    .diagram-box span {
+
+    .nav-toggle-btn { /* Renombrado de .nav-toggle */
+        display: block;
+    }
+
+    .app-nav-bar.scrolled { /* Renombrado de .main-nav.scrolled */
+        padding: 0.2rem 0;
+    }
+
+    .app-main-content { /* Renombrado de .container */
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    h1 {
         font-size: 1.8rem;
     }
-    .diagram-arrow {
-        font-size: 1.2rem;
+
+    .options-grid { /* Ajustado para móviles a 1 columna */
+        grid-template-columns: 1fr;
     }
-    .encryption-line {
-        font-size: 0.7rem;
+
+    .copy-action-btn { /* Renombrado de .copy-btn */
+        position: static;
+        margin-top: 1rem;
+        width: 100%;
     }
-    .vpn-tunnel-message {
-        padding: 0.75rem;
-        font-size: 0.9rem;
+
+    .password-display-wrapper { /* Renombrado de .password-output-container */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .feature-card {
-        padding: 0.75rem;
-        min-height: 120px;
+
+    .privacy-consent-banner { /* Renombrado de .cookie-banner */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
     }
-    .feature-icon-title span {
-        font-size: 1.8rem;
+
+    #app-alert-panel { /* Renombrado de #cookieBanner */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
     }
-    .feature-icon-title h3 {
-        font-size: 1rem;
+
+
+    .privacy-consent-banner .accept-consent-btn { /* Renombrado de .cookie-banner button */
+        width: 100%;
     }
-    .feature-short, .feature-detail {
-        font-size: 0.85rem;
+
+    #app-alert-panel #panel-confirm-btn { /* Selector específico para el botón de confirmar dentro del panel de alerta */
+        width: 100%;
     }
-    .checklist-card {
+
+    /* Ajustes específicos para secciones del blog y recurso en móviles */
+    .blog-entry,
+    .security-resource-section,
+    .info-section, /* Añadido para la página API */
+    .call-to-action-api { /* Añadido para la página API */
+        margin-left: 1rem;
+        margin-right: 1rem;
         padding: 1rem;
     }
-    .check-item {
-        padding: 0.5rem;
+
+    .profile-section {
+        flex-direction: column; /* Apilar imagen y texto en móviles */
     }
-    .check-item label {
+
+    .contact-buttons {
+        flex-direction: column; /* Apilar botones de contacto en móviles */
+    }
+
+    .feature-list.api-feature-list li {
+        flex-direction: column; /* Apilar icono y texto en la lista de características de API */
+        text-align: center;
+        padding: 1rem;
+    }
+    .feature-list.api-feature-list li i {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* --- Mobile First Specific Adjustments (480px or less) --- */
+@media (max-width: 480px) {
+    body {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .app-main-content { /* Renombrado de .container */
+        padding: 1rem !important;
+        margin: 0 auto 1rem auto;
+        border-radius: 0;
+    }
+
+    /* Tactile buttons and controls */
+    button,
+    .copy-action-btn, /* Renombrado de .copy-btn */
+    .option-item { /* Renombrado de .option */
+        min-height: 48px;
+    }
+
+    .option-item { /* Renombrado de .option */
+        padding: 15px 10px !important;
+    }
+
+    input[type="checkbox"] {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    /* Mobile results area */
+    .password-display-wrapper { /* Renombrado de .password-output-container */
+        padding: 0.8rem;
+        max-height: 40vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .generated-password-output div { /* Renombrado de .password-result div */
+        padding: 12px 0;
         font-size: 0.9rem;
     }
-    .recommendation-output {
-        padding: 0.75rem;
+
+    /* Mobile navigation */
+    .app-nav-bar { /* Renombrado de .main-nav */
+        padding: 0.5rem 0;
     }
-    .recommendation-output p.font-semibold {
-        font-size: 0.9rem;
+
+    .nav-wrapper { /* Renombrado de .nav-content */
+        padding: 0 1rem;
     }
-    .recommendation-output li {
-        font-size: 0.8rem;
+
+    .nav-list a { /* Renombrado de .nav-links a */
+        margin: 0.25rem 0;
+        padding: 0.5rem 1rem;
     }
-    .btn-primary {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
+
+    .resource-action-btn.email-button,
+    .resource-action-btn.linkedin-button,
+    .resource-action-btn.github-button,
+    .resource-action-btn.portfolio-button {
+        font-size: 0.85rem; /* Ajustar tamaño de fuente en móviles más pequeños */
+        padding: 0.7rem 1rem;
     }
-    .transparency-disclosure {
-        padding: 0.75rem;
-        font-size: 0.75rem;
-    }
+}
+
+/* --- Highlighted Class (for JavaScript interaction) --- */
+.highlighted {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 6px var(--accent-color);
+}
+
+.info-message {
+    background: rgba(67, 97, 238, 0.15);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.info-message h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.info-message p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0;
 }

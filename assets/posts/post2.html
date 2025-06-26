@@ -82,19 +82,20 @@
     </script>
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="../../index.html" class="nav-logo">
+    <!-- Barra de navegación principal -->
+    <nav class="app-nav-bar">
+        <div class="nav-wrapper">
+            <a href="index.html" class="site-logo">
                 <i class="fas fa-shield-alt"></i> BusinessPass
             </a>
-            <div class="nav-links">
-                <a href="../../index.html">Inicio</a>
-                <a href="../../blog.html">Blog</a>
-                <a href="../../about.html">Sobre Mí</a>
-                <a href="../../faq.html">FAQ</a>
-                <a href="../pages/api.html">API</a>
+            <div class="nav-list">
+                <a href="index.html">Inicio</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">Sobre Mí</a>
+                <a href="faq.html">FAQ</a>
+                <a href="assets/pages/api.html">API</a>
             </div>
-            <button class="nav-toggle" aria-label="Menú">
+            <button class="nav-toggle-btn" aria-label="Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -193,38 +194,42 @@
         </div>
     </main>
 
-    <!-- Footer - Contenido COMPLETO directamente en el HTML -->
-    <footer class="site-footer">
+    <!-- Pie de página del sitio -->
+    <footer class="app-site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
-        <div class="badge">Para Uso Empresarial</div>
-        <div class="footer-links">
+        <div class="app-badge">Para Uso Empresarial</div>
+        <div class="footer-navigation-links">
             <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Licencia MIT</a>
             <a href="../../privacy.html">Política de Privacidad</a>
             <a href="../../terms.html">Términos de Servicio</a>
-            <a href="#" id="support-link">Apoya el Proyecto</a>
+            <a href="#" id="support-project-link">Apoya el Proyecto</a>
         </div>
     </footer>
+
     <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+    <div id="support-dialog-box" class="app-modal">
+        <div class="modal-content-area">
+            <span class="modal-close-button">&times;</span>
             <h2>¡Apoya el Proyecto BusinessPass!</h2>
             <p>Tu apoyo ayuda a mantener y mejorar este servicio.</p>
             <p>Puedes realizar una donación directa a través de:</p>
-            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-button mercadopago-button" rel="noopener noreferrer">
+            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-action-btn mercadopago-btn" rel="noopener noreferrer">
                 <i class="fas fa-hand-holding-usd"></i> Donar con Mercado Pago (Uruguay)
             </a>
-            <a href="https://paypal.me/francap15" target="_blank" class="donation-button paypal-button" rel="noopener noreferrer">
+            <a href="https://paypal.me/francap15" target="_blank" class="donation-action-btn paypal-btn" rel="noopener noreferrer">
                 <i class="fab fa-paypal"></i> Donar con PayPal
             </a>
-            <p class="small-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
+            <p class="small-info-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
         </div>
     </div>
+
     <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
-    <div class="cookie-banner" id="cookieBanner">
+    <div class="privacy-consent-banner" id="app-alert-panel">
         <p>Usamos cookies esenciales para el funcionamiento. <a href="../../privacy.html">Más información</a></p>
-        <button id="acceptCookies">Aceptar</button>
+        <button id="panel-confirm-btn" class="accept-consent-btn">Aceptar</button>
     </div>
+    
+    <!-- Script principal de la aplicación -->
     <script type="module" src="../../js/main.js"></script>
 </body>
 </html>

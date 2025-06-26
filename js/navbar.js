@@ -2,8 +2,7 @@
 // js/navbar.js - Lógica de la barra de navegación
 // ===========================================
 
-// NO necesitamos importar DOM completo aquí, ya que los elementos de la navbar
-// están ahora estáticamente en el HTML y se consultarán directamente.
+import { DOM } from './dom-elements.js'; // Importamos el objeto DOM
 
 /**
  * Inicializa la lógica de la barra de navegación.
@@ -11,10 +10,10 @@
  * Asume que los elementos de la navbar ya están presentes en el DOM.
  */
 export function initNavbar() {
-    // Obtener referencias a los elementos de la navbar directamente del DOM
-    const nav = document.querySelector(".main-nav");
-    const navToggle = document.querySelector(".nav-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    // Las referencias a los elementos de la navbar ahora se obtienen desde DOM
+    const nav = DOM.navBar; // Renombrado de .main-nav a .app-nav-bar
+    const navToggle = DOM.navToggleBtn; // Renombrado de .nav-toggle a .nav-toggle-btn
+    const navLinks = DOM.navList; // Renombrado de .nav-links a .nav-list
     let lastScrollY = window.scrollY;
 
     // Asegurarse de que los elementos existan antes de añadir listeners

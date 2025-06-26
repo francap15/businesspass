@@ -18,7 +18,7 @@ import { generatePassphrase } from './passphrase-generator.js';
 import { updateStrengthMeter } from './strength-meter.js';
 import { handleBatchGeneration } from './batch-mode.js';
 import { initDonationModal } from './modal-handler.js';
-import { initCookieBanner } from './cookie-banner.js';
+import { initCookieBanner } from './site-alerts.js';
 import { initUIEnhancements } from './ui-enhancements.js';
 
 
@@ -30,7 +30,8 @@ import { initUIEnhancements } from './ui-enhancements.js';
 function handleGeneration() {
     // Restaurar el estado del botón de copiar
     DOM.copyBtn.disabled = false;
-    DOM.copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copiar';
+    // Asegurarse de que el ícono de Font Awesome esté correctamente renderizado en el botón
+    DOM.copyBtn.innerHTML = '<i class="far fa-copy"></i> Copiar';
 
     // Determinar la longitud efectiva según el modo activo
     // Asegurarse de que los elementos existan antes de acceder a ellos
@@ -60,10 +61,11 @@ function handleGeneration() {
             generatePassphrase: generatePassphrase, // Pass passphrase generation function
             wordListES: wordListES, // Pass word list
             baseCharSets: baseCharSets, // Pass charsets
-            ambiguousChars: ambiguousChars // Pass ambiguous characters
+            ambiguousChars: ambiguousChars, // Pass ambiguous characters
+            downloadBtn: DOM.downloadBtn // Asegúrate de pasar el downloadBtn
         });
-        // After batch generation, display a generic message
-        DOM.passwordResultEl.innerHTML = 'Contraseñas generadas en archivo.';
+        // Después de la generación en lote, mostrar un mensaje genérico
+        DOM.passwordResultEl.innerHTML = 'Contraseñas generadas. Descarga el CSV.'; // Mensaje actualizado
         updateStrengthMeter("", DOM.passphraseModeCheck.checked, DOM.passphraseSeparator.value, DOM.strengthBar); // Clear strength bar for batch
         return;
     }
@@ -152,7 +154,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             DOM.lengthValueEl.textContent = DOM.lengthSlider.value;
             if (
                 DOM.passwordResultEl.textContent !== 'Presiona "Generar..."' &&
-                DOM.passwordResultEl.textContent !== "Selecciona al menos un tipo de carácter"
+                DOM.passwordResultEl.textContent !== "Selecciona al menos un tipo de carácter" &&
+                DOM.passwordResultEl.textContent !== 'Contraseñas generadas. Descarga el CSV.' // Añadido para no regenerar en modo lote
             ) {
                 handleGeneration();
             }
@@ -162,9 +165,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (DOM.batchModeCheck) { // Check if batchModeCheck exists
             DOM.batchModeCheck.addEventListener("change", () => {
                 DOM.batchControlsEl.classList.toggle("show", DOM.batchModeCheck.checked);
+                // El botón de descarga ahora se muestra/oculta en el CSS, pero el JS maneja el display para flexibilidad
                 DOM.downloadBtn.style.display = DOM.batchModeCheck.checked ? "flex" : "none";
 
-                // Adjust button text based on active modes
+                // Ajustar texto del botón según los modos activos
                 if (DOM.batchModeCheck.checked) {
                     DOM.generateBtn.innerHTML = '<i class="fas fa-layer-group"></i> Generar Lote';
                 } else if (DOM.passphraseModeCheck && DOM.passphraseModeCheck.checked) {
@@ -183,11 +187,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Belongs to: Event Listeners / Copy Button
         DOM.copyBtn.addEventListener("click", () => {
-            const textToCopy = DOM.passwordResultEl.innerText;
+            // Se usa textContent para obtener el texto plano, lo cual es útil si hay HTML dentro (como en el modo lote)
+            let textToCopy;
+            if (DOM.batchModeCheck && DOM.batchModeCheck.checked) {
+                // Si es modo lote, extraer el texto de cada div y unirlos por nueva línea
+                const passwords = Array.from(DOM.passwordResultEl.children).map(div => div.textContent);
+                textToCopy = passwords.join('\n');
+            } else {
+                textToCopy = DOM.passwordResultEl.textContent;
+            }
+
+
             if (
                 textToCopy &&
                 textToCopy !== 'Presiona "Generar..."' &&
-                textToCopy !== "Selecciona al menos un tipo de carácter"
+                textToCopy !== "Selecciona al menos un tipo de carácter" &&
+                textToCopy !== 'Contraseñas generadas. Descarga el CSV.' // Ignorar este mensaje
             ) {
                 navigator.clipboard
                     .writeText(textToCopy)
@@ -204,7 +219,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     })
                     .catch((err) => {
                         console.error("Error al copiar: ", err);
-                        DOM.passwordResultEl.textContent = "Error al copiar.";
+                        // No usar alert(), muestra un mensaje en la UI si es posible
+                        DOM.passwordResultEl.textContent = "Error al copiar. Por favor, copia manualmente.";
                     });
             }
         });
@@ -219,7 +235,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         ].forEach((checkbox) => {
             if (checkbox) { // Asegurarse de que el checkbox existe
                 checkbox.addEventListener("change", () => {
+                    // Solo regenerar si no estamos en modo lote y el contenido no es un mensaje inicial/error
                     if (
+                        !(DOM.batchModeCheck && DOM.batchModeCheck.checked) &&
                         DOM.passwordResultEl.textContent !== 'Presiona "Generar..."' &&
                         DOM.passwordResultEl.textContent !== "Selecciona al menos un tipo de carácter"
                     ) {
@@ -239,7 +257,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 DOM.regularPasswordOptionsDiv.style.display = isPassphraseMode ? "none" : "grid";
                 DOM.passphraseExplanationDiv.style.display = isPassphraseMode ? "block" : "none";
 
-                // Adjust min/max/current values of length slider based on mode
+                // Ajustar min/max/current values of length slider based on mode
                 if (isPassphraseMode) {
                     DOM.lengthSlider.min = 3;
                     DOM.lengthSlider.max = 10;
@@ -253,7 +271,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
                 DOM.lengthValueEl.textContent = DOM.lengthSlider.value; // Update length display
 
-                // Adjust batch controls and generate button text
+                // Ajustar controles de lote y texto del botón de generar
                 if (DOM.batchModeCheck.checked) {
                     DOM.generateBtn.innerHTML = '<i class="fas fa-layer-group"></i> Generar Lote';
                 } else if (isPassphraseMode) {

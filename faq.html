@@ -20,9 +20,13 @@
     
     <!-- Preloads -->
     <link rel="preload" href="./css/styless.css" as="style">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style">
+
+    <!-- Hojas de estilo -->
     <link href="css/styless.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG28R51V9C"></script>
@@ -35,29 +39,32 @@
     </script>
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973"crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">
+    <!-- Barra de navegación principal -->
+    <nav class="app-nav-bar">
+        <div class="nav-wrapper">
+            <a href="index.html" class="site-logo">
                 <i class="fas fa-shield-alt"></i> BusinessPass
             </a>
-            <div class="nav-links">
+            <div class="nav-list">
                 <a href="index.html">Inicio</a>
                 <a href="blog.html">Blog</a>
                 <a href="about.html">Sobre Mí</a>
+                <a href="faq.html">FAQ</a>
                 <a href="assets/pages/api.html">API</a>
             </div>
-            <button class="nav-toggle" aria-label="Menú">
+            <button class="nav-toggle-btn" aria-label="Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <main class="container legal-container">
+    <!-- Contenido principal de la página de FAQ -->
+    <main class="app-main-content legal-container">
         <h1><i class="fas fa-question-circle"></i> Preguntas Frecuentes (FAQ)</h1>
-        <p class="subtitle">Aquí respondemos a las dudas más comunes sobre BusinessPass.</p>
+        <p class="app-subtitle">Aquí respondemos a las dudas más comunes sobre BusinessPass.</p>
 
         <div class="faq-section">
             <h2>¿Qué es BusinessPass?</h2>
@@ -94,38 +101,44 @@
             <p>En el modo lote, una vez que las contraseñas son generadas, aparecerá un botón "Descargar CSV". Al hacer clic en él, se descargará un archivo CSV con todas las contraseñas.</p>
         </div>
         
-        </main>
+    </main>
 
-    <footer class="site-footer">
+    <!-- Pie de página del sitio -->
+    <footer class="app-site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
-        <div class="badge">Para Uso Empresarial</div>
-        <div class="footer-links">
-            <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank">Licencia MIT</a>
+        <div class="app-badge">Para Uso Empresarial</div>
+        <div class="footer-navigation-links">
+            <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Licencia MIT</a>
             <a href="privacy.html">Política de Privacidad</a>
             <a href="terms.html">Términos de Servicio</a>
-            <a href="#" id="support-link">Apoya el Proyecto</a> </div>
+            <a href="#" id="support-project-link">Apoya el Proyecto</a>
+        </div>
     </footer>
 
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+    <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
+    <div id="support-dialog-box" class="app-modal">
+        <div class="modal-content-area">
+            <span class="modal-close-button">&times;</span>
             <h2>¡Apoya el Proyecto BusinessPass!</h2>
             <p>Tu apoyo ayuda a mantener y mejorar este servicio.</p>
             <p>Puedes realizar una donación directa a través de:</p>
-            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-button mercadopago-button">
+            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-action-btn mercadopago-btn" rel="noopener noreferrer">
                 <i class="fas fa-hand-holding-usd"></i> Donar con Mercado Pago (Uruguay)
             </a>
-            <a href="https://paypal.me/francap15" target="_blank" class="donation-button paypal-button">
+            <a href="https://paypal.me/francap15" target="_blank" class="donation-action-btn paypal-btn" rel="noopener noreferrer">
                 <i class="fab fa-paypal"></i> Donar con PayPal
             </a>
-            <p class="small-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
+            <p class="small-info-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
         </div>
     </div>
 
-    <div class="cookie-banner" id="cookieBanner">
+    <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
+    <div class="privacy-consent-banner" id="app-alert-panel">
         <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
-        <button id="acceptCookies">Aceptar</button>
+        <button id="panel-confirm-btn" class="accept-consent-btn">Aceptar</button>
     </div>
+    
+    <!-- Script principal de la aplicación -->
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

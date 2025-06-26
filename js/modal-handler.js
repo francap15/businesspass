@@ -2,38 +2,40 @@
 // js/modal-handler.js - Lógica del modal de donaciones
 // ===========================================
 
+import { DOM } from './dom-elements.js'; // Importamos el objeto DOM
+
 /**
  * Inicializa la lógica del modal de donaciones.
  * Asume que el HTML del modal ya está presente en el DOM.
  */
 export function initDonationModal() {
-    // Obtener referencias a los elementos del modal directamente del DOM
-    const donationModal = document.getElementById("donationModal");
-    const supportLink = document.getElementById("support-link");
-    const closeButton = document.querySelector("#donationModal .close-button");
+    // Obtener referencias a los elementos del modal desde DOM
+    const donationModal = DOM.supportDialog; // Renombrado de DOM.donationModal a DOM.supportDialog
+    const supportLink = DOM.supportLink; // ID se mantuvo como 'support-project-link'
+    const closeButton = DOM.modalCloseButton; // ID se mantuvo como '.modal-close-button'
 
     // Abrir modal al hacer clic en el enlace "Apoya el Proyecto"
-    if (supportLink && donationModal) { // Asegurarse de que ambos elementos existen
+    if (supportLink && donationModal) {
         supportLink.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-            donationModal.style.display = "flex"; // Mostrar el modal (usando flex para centrado)
-            document.body.style.overflow = 'hidden'; // Evitar scroll en el body mientras el modal está abierto
+            e.preventDefault();
+            donationModal.style.display = "flex";
+            document.body.style.overflow = 'hidden';
         });
     }
 
     // Cerrar modal al hacer clic en el botón 'x'
-    if (closeButton && donationModal) { // Asegurarse de que ambos elementos existen
+    if (closeButton && donationModal) {
         closeButton.addEventListener("click", () => {
             donationModal.style.display = "none";
-            document.body.style.overflow = ''; // Restaurar scroll del body
+            document.body.style.overflow = '';
         });
     }
 
     // Cerrar modal al hacer clic fuera de él
     window.addEventListener("click", (event) => {
-        if (event.target === donationModal && donationModal) { // Asegurarse de que donationModal existe
+        if (event.target === donationModal && donationModal) {
             donationModal.style.display = "none";
-            document.body.style.overflow = ''; // Restaurar scroll del body
+            document.body.style.overflow = '';
         }
     });
 

@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preload" href="../../css/styless.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style">
     
     <link rel="shortcut icon" href="../../shield-solid.svg" type="image/x-icon">
     <!-- Título de la página de la API -->
@@ -44,37 +45,40 @@
     </script>
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973"crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="../../index.html" class="nav-logo">
+    <!-- Barra de navegación principal -->
+    <nav class="app-nav-bar">
+        <div class="nav-wrapper">
+            <a href="../../index.html" class="site-logo">
                 <i class="fas fa-shield-alt"></i> BusinessPass
             </a>
-            <div class="nav-links">
+            <div class="nav-list">
                 <a href="../../index.html">Inicio</a>
                 <a href="../../blog.html">Blog</a>
                 <a href="../../about.html">Sobre Mí</a>
                 <a href="../../faq.html">FAQ</a>
+                <a href="api.html">API</a> <!-- Esta página es la actual -->
             </div>
-            <button class="nav-toggle" aria-label="Menú">
+            <button class="nav-toggle-btn" aria-label="Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <main class="container legal-container api-page-content">
+    <!-- Contenido principal de la página de la API -->
+    <main class="app-main-content legal-container api-page-content">
         <h1 class="text-center"><i class="fas fa-code"></i> Próximamente: ¡La API de BusinessPass!</h1>
-        <p class="subtitle text-center">Automatiza la generación de contraseñas seguras para tus aplicaciones y sistemas.</p>
+        <p class="app-subtitle text-center">Automatiza la generación de contraseñas seguras para tus aplicaciones y sistemas.</p>
         
         <div class="info-section text-center">
-            <p>En BusinessPass, se tiene precente que la eficiencia y la seguridad van de la mano en el desarrollo moderno. Por eso, me encuentro trabajando para lanzar una API que te permitirá integrar éste potente generador de contraseñas directamente en tus propias aplicaciones, scripts o plataformas.</p>
+            <p>En BusinessPass, se tiene presente que la eficiencia y la seguridad van de la mano en el desarrollo moderno. Por eso, me encuentro trabajando para lanzar una API que te permitirá integrar este potente generador de contraseñas directamente en tus propias aplicaciones, scripts o plataformas.</p>
             <p>Imagina poder generar contraseñas únicas y robustas a demanda, con todos los parámetros que ya conoces de BusinessPass, pero de forma programática. Esto te brindará un control sin precedentes sobre la gestión de credenciales en tus proyectos empresariales.</p>
         </div>
 
         <h2 class="text-center">¿Qué podrás hacer con la API de BusinessPass?</h2>
-        <ul class="feature-list">
+        <ul class="feature-list api-feature-list"> <!-- Añadida api-feature-list para estilos específicos -->
             <li><i class="fas fa-cogs"></i> <strong>Generación Automatizada:</strong> Crea contraseñas complejas o passphrases de forma instantánea mediante llamadas a nuestra API.</li>
             <li><i class="fas fa-user-shield"></i> <strong>Seguridad Escalable:</strong> Asegura tus aplicaciones con credenciales generadas bajo los más altos estándares, sin intervención manual.</li>
             <li><i class="fas fa-plug"></i> <strong>Integración Sencilla:</strong> Diseñada pensando en desarrolladores, con documentación clara y ejemplos de uso.</li>
@@ -85,43 +89,48 @@
             <h3>¿Interesado en la API de BusinessPass?</h3>
             <p>Estoy construyéndola para satisfacer las necesidades de la comunidad de desarrolladores y empresas.</p>
             <p>Déjame saber tu interés y mantente al tanto de las novedades. ¡Tu feedback ayuda a priorizar funcionalidades clave!</p>
-            <a href="mailto:balter.contacto@gmail.com?subject=Inter%C3%A9s%20en%20la%20API%20de%20BusinessPass" class="cta-button api-cta-button">
+            <a href="mailto:balter.contacto@gmail.com?subject=Inter%C3%A9s%20en%20la%20API%20de%20BusinessPass" class="resource-action-btn api-cta-button">
                 <i class="fas fa-envelope"></i> Contáctame para más información
             </a>
         </div>
     </main>
 
-    <footer class="site-footer">
+    <!-- Pie de página del sitio -->
+    <footer class="app-site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
-        <div class="badge">Para Uso Empresarial</div>
-        <div class="footer-links">
+        <div class="app-badge">Para Uso Empresarial</div>
+        <div class="footer-navigation-links">
             <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Licencia MIT</a>
-            <a href="../privacy.html">Política de Privacidad</a>
-            <a href="../terms.html">Términos de Servicio</a>
-            <a href="#" id="support-link">Apoya el Proyecto</a>
+            <a href="../../privacy.html">Política de Privacidad</a>
+            <a href="../../terms.html">Términos de Servicio</a>
+            <a href="#" id="support-project-link">Apoya el Proyecto</a>
         </div>
     </footer>
 
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+    <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
+    <div id="support-dialog-box" class="app-modal">
+        <div class="modal-content-area">
+            <span class="modal-close-button">&times;</span>
             <h2>¡Apoya el Proyecto BusinessPass!</h2>
             <p>Tu apoyo ayuda a mantener y mejorar este servicio.</p>
             <p>Puedes realizar una donación directa a través de:</p>
-            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-button mercadopago-button" rel="noopener noreferrer">
+            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-action-btn mercadopago-btn" rel="noopener noreferrer">
                 <i class="fas fa-hand-holding-usd"></i> Donar con Mercado Pago (Uruguay)
             </a>
-            <a href="https://paypal.me/francap15" target="_blank" class="donation-button paypal-button" rel="noopener noreferrer">
+            <a href="https://paypal.me/francap15" target="_blank" class="donation-action-btn paypal-btn" rel="noopener noreferrer">
                 <i class="fab fa-paypal"></i> Donar con PayPal
             </a>
-            <p class="small-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
+            <p class="small-info-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
         </div>
     </div>
 
-    <div class="cookie-banner" id="cookieBanner">
-        <p>Usamos cookies esenciales para el funcionamiento. <a href="../privacy.html">Más información</a></p>
-        <button id="acceptCookies">Aceptar</button>
+    <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
+    <div class="privacy-consent-banner" id="app-alert-panel">
+        <p>Usamos cookies esenciales para el funcionamiento. <a href="../../privacy.html">Más información</a></p>
+        <button id="panel-confirm-btn" class="accept-consent-btn">Aceptar</button>
     </div>
+    
+    <!-- Script principal de la aplicación -->
     <script type="module" src="../../js/main.js"></script>
 </body>
 </html>

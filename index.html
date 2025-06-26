@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BusinessPass: Genera contraseñas ultra-seguras en segundos. Exporta lotes en CSV/JSON. 100% gratuito, seguro y sin almacenamiento de datos. Ideal para empresas y usuarios exigentes.">
-    <meta name="keywords" content="generador contraseñas, seguridad informática, contraseñas seguras, herramientas IT, ciberseguridad">
+    <meta name="description"
+        content="BusinessPass: Genera contraseñas ultra-seguras en segundos. Exporta lotes en CSV/JSON. 100% gratuito, seguro y sin almacenamiento de datos. Ideal para empresas y usuarios exigentes.">
+    <meta name="keywords"
+        content="generador contraseñas, seguridad informática, contraseñas seguras, herramientas IT, ciberseguridad">
     <meta name="author" content="Balter Velázquez">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
+    <!-- Eliminar la meta viewport duplicada, la que está con maximum-scale: 5.0 es preferible para mayor control en móviles. -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale: 1.0, viewport-fit=cover"> -->
     <meta name="theme-color" content="#4361ee">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,128 +21,117 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Precargar los estilos para un mejor rendimiento -->
     <link rel="preload" href="./css/styless.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
 
     <link rel="shortcut icon" href="shield-solid.svg" type="image/x-icon">
     <title>BusinessPass | Generador Profesional de Contraseñas Seguras</title>
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "BusinessPass",
-        "description": "Generador avanzado de contraseñas seguras para empresas y usuarios",
-        "applicationCategory": "SecurityApplication",
-        "operatingSystem": "Web Browser"
-    }
-    </script>
-
+    <!-- Enlaces a los archivos CSS -->
     <link href="css/styless.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2735974987849973" crossorigin="anonymous"></script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG28R51V9C"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-SG28R51V9C');
-    </script>
 </head>
+
 <body>
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">
+    <!-- Barra de navegación principal -->
+    <nav class="app-nav-bar">
+        <div class="nav-wrapper">
+            <a href="index.html" class="site-logo">
                 <i class="fas fa-shield-alt"></i> BusinessPass
             </a>
-            <div class="nav-links">
+            <div class="nav-list">
                 <a href="index.html">Inicio</a>
                 <a href="blog.html">Blog</a>
                 <a href="about.html">Sobre Mí</a>
                 <a href="faq.html">FAQ</a>
                 <a href="assets/pages/api.html">API</a>
             </div>
-            <button class="nav-toggle" aria-label="Menú">
+            <button class="nav-toggle-btn" aria-label="Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <main class="container">
+    <!-- Contenido principal de la aplicación -->
+    <main class="app-main-content">
         <h1><i class="fas fa-shield-alt"></i> BusinessPass</h1>
-        <p class="subtitle">Generador de contraseñas robustas para equipos IT y empresas.</p>
+        <p class="app-subtitle">Generador de contraseñas robustas para equipos IT y empresas.</p>
 
-        <div class="control-group">
+        <!-- Grupo de controles de entrada para la longitud de la contraseña -->
+        <div class="input-controls-group">
             <label for="length-slider">Longitud de la Contraseña:</label>
             <input type="range" id="length-slider" min="8" max="64" value="16">
-            <div class="length-display">
+            <div class="length-display-info">
                 <span>Mín: 8</span>
-                <span class="length-value" id="length-value">16</span>
+                <span class="current-length-value" id="length-value">16</span>
                 <span>Máx: 64</span>
             </div>
         </div>
 
-        <div class="options">
+        <!-- Opciones de generación de contraseña (Regular y Passphrase) -->
+        <div class="password-generation-options"> <!-- Nueva clase para el contenedor principal de opciones -->
+            <!-- Opciones para el modo de contraseña regular -->
             <div id="regular-password-options" class="options-grid">
-                <div class="option">
+                <div class="option-item">
                     <input type="checkbox" id="uppercase" checked>
                     <label for="uppercase">Mayúsculas (A-Z)</label>
                 </div>
-                <div class="option">
+                <div class="option-item">
                     <input type="checkbox" id="lowercase" checked>
                     <label for="lowercase">Minúsculas (a-z)</label>
                 </div>
-                <div class="option">
+                <div class="option-item">
                     <input type="checkbox" id="numbers" checked>
                     <label for="numbers">Números (0-9)</label>
                 </div>
-                <div class="option">
+                <div class="option-item">
                     <input type="checkbox" id="symbols" checked>
                     <label for="symbols">Símbolos (!@#$)</label>
                 </div>
-                <div class="option">
+                <div class="option-item">
                     <input type="checkbox" id="exclude-ambiguous">
                     <label for="exclude-ambiguous">Excluir Ambiguos (l,1,O,0)</label>
                 </div>
+                <div class="option-item">
+                    <input type="checkbox" id="batch-mode">
+                    <label for="batch-mode">Modo Lote</label>
+                </div>
+                <div class="option-item">
+                    <input type="checkbox" id="passphrase-mode">
+                    <label for="passphrase-mode">Modo Passphrase</label>
+                </div>
             </div>
 
+            <!-- Mensaje de información para el modo Passphrase -->
             <div id="passphrase-explanation" class="info-message" style="display: none;">
                 <h3>¡Modo Passphrase Activo!</h3>
-                <p>Aquí, la "Longitud" se refiere al **número de palabras**, no a caracteres. Generamos frases más fáciles de recordar y ultra-seguras. Puedes ajustar el separador entre palabras.</p>
+                <p>Aquí, la "Longitud" se refiere al **número de palabras**, no a caracteres. Generamos
+                    frases más fáciles de recordar y ultra-seguras. Puedes ajustar el separador entre palabras.</p>
             </div>
 
-            <div class="option">
-                <input type="checkbox" id="batch-mode">
-                <label for="batch-mode">Modo Lote</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="passphrase-mode">
-                <label for="passphrase-mode">Modo Passphrase</label>
-            </div>
-
+            <!-- Controles específicos para el modo Passphrase -->
             <div id="passphrase-controls" class="hidden">
-                <div class="options-grid">
-                    <div class="option">
+                <div class="options-grid"> <!-- Usamos options-grid aquí también para consistencia de diseño -->
+                    <div class="option-item">
                         <input type="checkbox" id="passphrase-capitalize-randomly">
                         <label for="passphrase-capitalize-randomly">Capitalizar palabras al azar</label>
                     </div>
-                    <div class="option">
+                    <div class="option-item">
                         <input type="checkbox" id="passphrase-include-numbers">
                         <label for="passphrase-include-numbers">Incluir números</label>
                     </div>
-                    <div class="option">
+                    <div class="option-item">
                         <input type="checkbox" id="passphrase-include-symbols">
                         <label for="passphrase-include-symbols">Incluir símbolos</label>
                     </div>
                 </div>
                 <label for="passphrase-length">Palabras:</label>
                 <input type="range" id="passphrase-length" min="3" max="8" value="4">
-                <span class="length-value" id="passphrase-length-value">4</span>
+                <span class="current-length-value" id="passphrase-length-value">4</span>
 
                 <label for="passphrase-separator">Separador:</label>
                 <select id="passphrase-separator">
@@ -150,93 +143,99 @@
             </div>
         </div>
 
-        <div class="batch-controls" id="batch-controls">
+        <!-- Controles para el modo Lote -->
+        <div class="batch-generation-controls" id="batch-controls">
             <label for="batch-size">Número de Contraseñas (2-50):</label>
             <input type="number" id="batch-size" min="2" max="50" value="5">
         </div>
 
-        <button id="generate-btn"><i class="fas fa-cogs"></i> Generar Contraseña</button>
+        <!-- Botón para generar contraseña -->
+        <button class="action-trigger-btn" id="generate-btn"><i class="fas fa-cogs"></i> Generar Contraseña</button>
 
-        <div class="result-area">
-            <div class="password-output-container">
-                <div class="password-result" id="password-result">Presiona "Generar"...</div>
-                <button class="copy-btn" id="copy-btn" aria-label="Copiar contraseña"><i class="far fa-copy"></i> Copiar</button>
+        <!-- Área de resultados de la contraseña -->
+        <div class="output-display-area">
+            <div class="password-display-wrapper">
+                <div class="generated-password-output" id="password-result">Presiona "Generar"...</div>
+                <button class="copy-action-btn" id="copy-btn" aria-label="Copiar contraseña"><i class="far fa-copy"></i> Copiar</button>
             </div>
-            <div class="strength-meter">
-                <div class="strength-bar" id="strength-bar"></div>
+            <div class="security-strength-meter">
+                <div class="strength-indicator-bar" id="strength-bar"></div>
             </div>
         </div>
 
-        <button id="download-btn" style="display: none;"><i class="fas fa-download"></i> Descargar CSV</button>
+        <!-- Botón de descarga para modo Lote -->
+        <button id="download-btn" class="utility-action-btn" style="display: none;"><i class="fas fa-download"></i> Descargar CSV</button>
 
-        <br>
-        <hr>
-        <br>
+        <div class="separator-section"></div> <!-- Separador visual para el blog -->
 
-        <h1><i class="fas fa-newspaper"></i> Blog de Seguridad</h1>
+        <!-- Sección del Blog de Seguridad -->
+        <h1 class="blog-section-title"><i class="fas fa-newspaper"></i> Blog de Seguridad</h1>
 
-        <article class="blog-post">
+        <article class="blog-entry">
             <h2>Cómo crear contraseñas seguras para tu empresa en 2025</h2>
             <p>Las contraseñas débiles son la principal causa de filtraciones de datos...</p>
             <a href="assets/posts/post1.html">Leer más</a>
         </article>
 
-        <article class="blog-post">
+        <article class="blog-entry">
             <h2>5 errores comunes al gestionar contraseñas en equipos IT</h2>
             <p>Muchas empresas cometen estos fallos que ponen en riesgo su seguridad...</p>
             <a href="assets/posts/post2.html">Leer más</a>
         </article>
         
-        <section class="mt-8 p-6 bg-card-bg rounded-lg shadow-xl text-center flex flex-col items-center">
-            <h3 class="text-xl font-semibold text-primary mb-4">
+        <!-- Sección de recurso de seguridad (NordVPN) -->
+        <section class="security-resource-section">
+            <h3 class="resource-section-title">
                 ¿Quieres llevar tu seguridad al siguiente nivel?
             </h3>
-            <p class="text-muted mb-6 max-w-lg">
+            <p class="resource-section-description">
                 Además de contraseñas robustas, protege tu conexión a internet de miradas indiscretas.
                 Una VPN es un pilar fundamental para tu ciberseguridad.
             </p>
-            <a href="assets/pages/nordvpnAff.html" class="btn-primary inline-flex items-center">
-                <i class="fas fa-network-wired mr-2"></i> Descubre cómo NordVPN te protege
+            <a href="assets/pages/nordvpnAff.html" class="resource-action-btn"
+                rel="noopener sponsored">
+                <i class="fas fa-network-wired"></i> Descubre cómo NordVPN te protege
             </a>
         </section>
     </main>
 
-    <!-- Footer - Contenido COMPLETO directamente en el HTML -->
-    <footer class="site-footer">
+    <!-- Pie de página del sitio -->
+    <footer class="app-site-footer">
         <p><i class="fas fa-lock"></i> 100% seguro en tu navegador. No almacenamos tus contraseñas.</p>
-        <div class="badge">Para Uso Empresarial</div>
-        <div class="footer-links">
+        <div class="app-badge">Para Uso Empresarial</div>
+        <div class="footer-navigation-links">
             <a href="https://github.com/francap15/businesspass/blob/main/LICENSE.md" target="_blank">Licencia MIT</a>
             <a href="privacy.html">Política de Privacidad</a>
             <a href="terms.html">Términos de Servicio</a>
-            <a href="#" id="support-link">Apoya el Proyecto</a>
+            <a href="#" id="support-project-link">Apoya el Proyecto</a>
         </div>
     </footer>
 
     <!-- Donation Modal - Contenido COMPLETO directamente en el HTML -->
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+    <div id="support-dialog-box" class="app-modal">
+        <div class="modal-content-area">
+            <span class="modal-close-button">&times;</span>
             <h2>¡Apoya el Proyecto BusinessPass!</h2>
             <p>Tu apoyo ayuda a mantener y mejorar este servicio.</p>
             <p>Puedes realizar una donación directa a través de:</p>
-            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-button mercadopago-button">
+            <a href="https://link.mercadopago.com.uy/businesspass" target="_blank" class="donation-action-btn mercadopago-btn">
                 <i class="fas fa-hand-holding-usd"></i> Donar con Mercado Pago (Uruguay)
             </a>
-            <a href="https://paypal.me/francap15" target="_blank" class="donation-button paypal-button">
+            <a href="https://paypal.me/francap15" target="_blank" class="donation-action-btn paypal-btn">
                 <i class="fab fa-paypal"></i> Donar con PayPal
             </a>
-            <p class="small-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
+            <p class="small-info-text">¡Cada contribución, por pequeña que sea, es inmensamente valorada!</p>
         </div>
     </div>
 
     <!-- Cookie Banner - Contenido COMPLETO directamente en el HTML -->
-    <div class="cookie-banner" id="cookieBanner">
+    <div class="privacy-consent-banner" id="app-alert-panel">
         <p>Usamos cookies esenciales para el funcionamiento. <a href="privacy.html">Más información</a></p>
-        <button id="acceptCookies">Aceptar</button>
+        <button id="panel-confirm-btn" class="accept-consent-btn">Aceptar</button>
     </div>
 
-    <!-- Carga el script principal como un módulo ES6 -->
+    <!-- Script principal de la aplicación -->
     <script type="module" src="js/main.js"></script>
 </body>
+
 </html>
