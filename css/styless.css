@@ -120,7 +120,6 @@ body {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
     padding: 0.5rem 0;
 }
 
@@ -1151,7 +1150,7 @@ button.utility-action-btn#download-btn:hover { /* Usando clase y ID */
 
 /* --- Donation Modal Styles --- */
 .app-modal { /* Renombrado de .modal */
-    display: none; /* Controlado por JS */
+    display: none; /* OCULTO POR DEFECTO */
     position: fixed;
     z-index: 2000;
     left: 0;
@@ -1163,6 +1162,10 @@ button.utility-action-btn#download-btn:hover { /* Usando clase y ID */
     justify-content: center;
     align-items: center;
     padding: 1rem;
+}
+
+.app-modal.show {
+    display: flex !important; /* FORZAR LA VISIBILIDAD CUANDO LA CLASE 'show' ESTÉ PRESENTE */
 }
 
 .modal-content-area { /* Renombrado de .modal-content */
@@ -1265,13 +1268,13 @@ button.utility-action-btn#download-btn:hover { /* Usando clase y ID */
 
 /* --- Cookie Banner Styles --- */
 .privacy-consent-banner { /* Renombrado de .cookie-banner */
+    display: none; /* OCULTO POR DEFECTO */
     position: fixed;
     bottom: 0;
     left: 0;
     background: var(--card-bg);
     padding: 1rem 2rem;
     width: 100%;
-    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -1280,251 +1283,82 @@ button.utility-action-btn#download-btn:hover { /* Usando clase y ID */
     color: var(--text-light);
 }
 
-.privacy-consent-banner p { /* Renombrado de .cookie-banner p */
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-.privacy-consent-banner a { /* Renombrado de .cookie-banner a */
-    color: var(--primary);
-    text-decoration: none;
-    margin-left: 0.5rem;
-}
-
-.accept-consent-btn { /* Renombrado de .cookie-banner button */
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    width: auto;
-    transition: background 0.2s ease;
-}
-
-/* Selector por ID para el botón de confirmar en el panel de alerta */
-#panel-confirm-btn { /* Renombrado de #acceptCookies */
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    width: auto;
-    transition: background 0.2s ease;
+.privacy-consent-banner.show {
+    display: flex !important; /* FORZAR LA VISIBILIDAD CUANDO LA CLASE 'show' ESTÉ PRESENTE */
 }
 
 
-.accept-consent-btn:hover { /* Renombrado de .cookie-banner button:hover */
-    background: var(--primary-hover);
+/* ===========================================
+    CLASES DE VISIBILIDAD CRÍTICAS (Asegurarse de que estén al final)
+   =========================================== */
+
+/* Clase para ocultar elementos - Fundamental */
+.hidden {
+    display: none !important;
 }
 
-#panel-confirm-btn:hover { /* Hover para el botón de confirmar en el panel de alerta */
-    background: var(--primary-hover);
+/* Regla general para 'show' (si la usas para otros elementos que no son flex) */
+.show {
+    /* Aquí podrías tener `display: block !important;` si 'show' se usa para elementos block */
+    /* Para el modal y el banner, ya están definidos arriba con `display: flex !important;` */
 }
 
 
-/* --- Responsive Adjustments --- */
+/* Responsive Adjustments (Mantener al final para sobrescribir si es necesario) */
 @media (max-width: 768px) {
-    .nav-wrapper { /* Renombrado de .nav-content */
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .nav-list { /* Renombrado de .nav-links */
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: var(--card-bg);
+    .nav-list {
+        display: none;
         flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        clip-path: circle(0% at 90% -10%);
-        transition: clip-path 0.7s ease;
-        z-index: 999;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+        background: var(--card-bg);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        padding-bottom: 1rem;
     }
 
-    .nav-list.open { /* Renombrado de .nav-links.open */
-        clip-path: circle(150% at 50% 50%);
+    .nav-list.show {
+        display: flex;
     }
 
-    .nav-toggle-btn { /* Renombrado de .nav-toggle */
+    .nav-list a {
+        padding: 0.8rem 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .nav-list a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-toggle-btn {
         display: block;
     }
 
-    .app-nav-bar.scrolled { /* Renombrado de .main-nav.scrolled */
-        padding: 0.2rem 0;
-    }
-
-    .app-main-content { /* Renombrado de .container */
+    .app-main-content, .legal-container {
         padding: 1.5rem;
-        margin: 1.5rem auto;
+        margin: 1rem auto;
     }
 
     h1 {
         font-size: 1.8rem;
     }
-
-    .options-grid { /* Ajustado para móviles a 1 columna */
-        grid-template-columns: 1fr;
+    h2 {
+        font-size: 1.4rem;
     }
 
-    .copy-action-btn { /* Renombrado de .copy-btn */
-        position: static;
-        margin-top: 1rem;
-        width: 100%;
+    .options-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
     }
 
-    .password-display-wrapper { /* Renombrado de .password-output-container */
-        display: flex;
+    .copy-action-btn {
+        position: static; /* Quitar posicionamiento absoluto para móvil si se ve mal */
+        margin-top: 10px; /* Añadir margen superior si se mueve */
+        transform: none; /* Resetear transformaciones */
+        box-shadow: none; /* Eliminar sombra extra */
+    }
+
+    .password-display-wrapper {
         flex-direction: column;
         align-items: center;
     }
-
-    .privacy-consent-banner { /* Renombrado de .cookie-banner */
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-    }
-
-    #app-alert-panel { /* Renombrado de #cookieBanner */
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-    }
-
-
-    .privacy-consent-banner .accept-consent-btn { /* Renombrado de .cookie-banner button */
-        width: 100%;
-    }
-
-    #app-alert-panel #panel-confirm-btn { /* Selector específico para el botón de confirmar dentro del panel de alerta */
-        width: 100%;
-    }
-
-    /* Ajustes específicos para secciones del blog y recurso en móviles */
-    .blog-entry,
-    .security-resource-section,
-    .info-section, /* Añadido para la página API */
-    .call-to-action-api { /* Añadido para la página API */
-        margin-left: 1rem;
-        margin-right: 1rem;
-        padding: 1rem;
-    }
-
-    .profile-section {
-        flex-direction: column; /* Apilar imagen y texto en móviles */
-    }
-
-    .contact-buttons {
-        flex-direction: column; /* Apilar botones de contacto en móviles */
-    }
-
-    .feature-list.api-feature-list li {
-        flex-direction: column; /* Apilar icono y texto en la lista de características de API */
-        text-align: center;
-        padding: 1rem;
-    }
-    .feature-list.api-feature-list li i {
-        margin-bottom: 0.5rem;
-    }
-}
-
-/* --- Mobile First Specific Adjustments (480px or less) --- */
-@media (max-width: 480px) {
-    body {
-        -webkit-text-size-adjust: 100%;
-    }
-
-    .app-main-content { /* Renombrado de .container */
-        padding: 1rem !important;
-        margin: 0 auto 1rem auto;
-        border-radius: 0;
-    }
-
-    /* Tactile buttons and controls */
-    button,
-    .copy-action-btn, /* Renombrado de .copy-btn */
-    .option-item { /* Renombrado de .option */
-        min-height: 48px;
-    }
-
-    .option-item { /* Renombrado de .option */
-        padding: 15px 10px !important;
-    }
-
-    input[type="checkbox"] {
-        width: 22px !important;
-        height: 22px !important;
-    }
-
-    /* Mobile results area */
-    .password-display-wrapper { /* Renombrado de .password-output-container */
-        padding: 0.8rem;
-        max-height: 40vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .generated-password-output div { /* Renombrado de .password-result div */
-        padding: 12px 0;
-        font-size: 0.9rem;
-    }
-
-    /* Mobile navigation */
-    .app-nav-bar { /* Renombrado de .main-nav */
-        padding: 0.5rem 0;
-    }
-
-    .nav-wrapper { /* Renombrado de .nav-content */
-        padding: 0 1rem;
-    }
-
-    .nav-list a { /* Renombrado de .nav-links a */
-        margin: 0.25rem 0;
-        padding: 0.5rem 1rem;
-    }
-
-    .resource-action-btn.email-button,
-    .resource-action-btn.linkedin-button,
-    .resource-action-btn.github-button,
-    .resource-action-btn.portfolio-button {
-        font-size: 0.85rem; /* Ajustar tamaño de fuente en móviles más pequeños */
-        padding: 0.7rem 1rem;
-    }
-}
-
-/* --- Highlighted Class (for JavaScript interaction) --- */
-.highlighted {
-    border: 2px solid var(--accent-color);
-    box-shadow: 0 0 6px var(--accent-color);
-}
-
-.info-message {
-    background: rgba(67, 97, 238, 0.15);
-    border: 1px solid var(--primary);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
-    color: var(--text-light);
-    text-align: center;
-}
-
-.info-message h3 {
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.info-message p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 0;
 }

@@ -10,6 +10,13 @@
  * @param {HTMLElement} strengthBarElement - La referencia al elemento de la barra de fortaleza.
  */
 export function updateStrengthMeter(generatedPassword, isPassphraseMode, passphraseSeparator, strengthBarElement) {
+    // IMPORTANTE: Verificar si strengthBarElement existe antes de intentar manipularlo.
+    // Si es null o undefined, simplemente salimos de la función para evitar el error.
+    if (!strengthBarElement) {
+        console.warn("strengthBarElement no fue proporcionado a updateStrengthMeter. La barra de fuerza no se actualizará.");
+        return;
+    }
+
     let strength = 0;
 
     if (!generatedPassword) {

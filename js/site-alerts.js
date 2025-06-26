@@ -1,30 +1,28 @@
 // ===========================================
-// js/cookie-banner.js - Lógica del banner de cookies
+// js/site-alerts.js - Lógica del banner de cookies
 // ===========================================
 
-import { DOM } from './dom-elements.js'; // Importamos el objeto DOM
+import { DOM } from './dom-elements.js';
 
 /**
- * Inicializa la lógica del banner de cookies.
- * Asume que el HTML del banner ya está presente en el DOM.
+ * Inicializa la lógica del banner de consentimiento de cookies.
  */
 export function initCookieBanner() {
-    // Obtener referencias a los elementos del banner desde DOM
-    const alertPanel = DOM.alertPanel; // Renombrado de cookieBanner
-    const confirmButton = DOM.panelConfirmBtn; // Renombrado de acceptCookiesBtn
+    // Asegurarse de que los elementos existan antes de añadir listeners
+    if (DOM.alertPanel && DOM.panelConfirmBtn) {
+        // Comprobar si el usuario ya aceptó las cookies
+        const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
 
-    if (alertPanel) { // Asegurarse de que el elemento existe antes de interactuar con él
-        if (!localStorage.getItem("cookiesAccepted")) {
-            // Se usa la clase 'privacy-consent-banner' en CSS para controlar el display.
-            // Aquí se setea el estilo directamente para mayor control.
-            alertPanel.style.display = "flex"; // Mostrar el banner si las cookies no han sido aceptadas
+        if (!hasAcceptedCookies) {
+            DOM.alertPanel.classList.add('show');
         }
-    }
 
-    if (confirmButton && alertPanel) { // Asegurarse de que el botón y el banner existen
-        confirmButton.addEventListener("click", () => {
-            localStorage.setItem("cookiesAccepted", "true"); // Marcar cookies como aceptadas en localStorage
-            alertPanel.style.display = "none"; // Ocultar el banner
+        // Manejar el clic en el botón de aceptar
+        DOM.panelConfirmBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            DOM.alertPanel.classList.remove('show');
         });
+    } else {
+        console.warn("Algunos elementos del banner de cookies no fueron encontrados. No se inicializó el banner.");
     }
 }

@@ -1,48 +1,57 @@
 // ===========================================
-// js/modal-handler.js - Lógica del modal de donaciones
+// js/modal-handler.js - Lógica del modal de apoyo al proyecto
 // ===========================================
 
-import { DOM } from './dom-elements.js'; // Importamos el objeto DOM
+import { DOM } from './dom-elements.js';
 
 /**
- * Inicializa la lógica del modal de donaciones.
- * Asume que el HTML del modal ya está presente en el DOM.
+ * Inicializa la lógica del modal de apoyo al proyecto.
+ * Esto incluye abrirlo y cerrarlo.
  */
-export function initDonationModal() {
-    // Obtener referencias a los elementos del modal desde DOM
-    const donationModal = DOM.supportDialog; // Renombrado de DOM.donationModal a DOM.supportDialog
-    const supportLink = DOM.supportLink; // ID se mantuvo como 'support-project-link'
-    const closeButton = DOM.modalCloseButton; // ID se mantuvo como '.modal-close-button'
+export function initProjectSupportModal() {
+    console.log("initProjectSupportModal: Iniciando..."); // Debugging
+    console.log("initProjectSupportModal: DOM.projectSupportLink es", DOM.projectSupportLink);
+    console.log("initProjectSupportModal: DOM.supportDialog es", DOM.supportDialog);
+    console.log("initProjectSupportModal: DOM.modalCloseButton es", DOM.modalCloseButton);
 
-    // Abrir modal al hacer clic en el enlace "Apoya el Proyecto"
-    if (supportLink && donationModal) {
-        supportLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            donationModal.style.display = "flex";
-            document.body.style.overflow = 'hidden';
+
+    // Asegurarse de que los elementos existan antes de añadir listeners
+    if (DOM.projectSupportLink && DOM.supportDialog && DOM.modalCloseButton) {
+        console.log("initProjectSupportModal: Todos los elementos del modal de apoyo encontrados. Adjuntando listeners."); // Debugging
+        
+        // Abre el modal
+        DOM.projectSupportLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+            console.log("Click en 'Apoya el Proyecto'. Abriendo modal."); // Debugging
+            DOM.supportDialog.classList.add('show');
+            DOM.supportDialog.setAttribute('aria-hidden', 'false'); // Accesibilidad
         });
-    }
 
-    // Cerrar modal al hacer clic en el botón 'x'
-    if (closeButton && donationModal) {
-        closeButton.addEventListener("click", () => {
-            donationModal.style.display = "none";
-            document.body.style.overflow = '';
+        // Cierra el modal al hacer clic en la 'x'
+        DOM.modalCloseButton.addEventListener('click', () => {
+            console.log("Click en botón de cerrar modal. Cerrando modal."); // Debugging
+            DOM.supportDialog.classList.remove('show');
+            DOM.supportDialog.setAttribute('aria-hidden', 'true'); // Accesibilidad
         });
+
+        // Cierra el modal al hacer clic fuera de él
+        DOM.supportDialog.addEventListener('click', (e) => {
+            if (e.target === DOM.supportDialog) {
+                console.log("Click fuera del contenido del modal. Cerrando modal."); // Debugging
+                DOM.supportDialog.classList.remove('show');
+                DOM.supportDialog.setAttribute('aria-hidden', 'true'); // Accesibilidad
+            }
+        });
+
+        // Cierra el modal al presionar la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && DOM.supportDialog.classList.contains('show')) {
+                console.log("Tecla ESC presionada. Cerrando modal."); // Debugging
+                DOM.supportDialog.classList.remove('show');
+                DOM.supportDialog.setAttribute('aria-hidden', 'true');
+            }
+        });
+    } else {
+        console.warn("Algunos elementos del modal de apoyo no fueron encontrados. No se inicializó el modal. (Esto es esperado si DOM.projectSupportLink es null)."); // Debugging
     }
-
-    // Cerrar modal al hacer clic fuera de él
-    window.addEventListener("click", (event) => {
-        if (event.target === donationModal && donationModal) {
-            donationModal.style.display = "none";
-            document.body.style.overflow = '';
-        }
-    });
-
-    // === INICIO DE CAMBIO ===
-    // Se ha eliminado la lógica de mostrar el modal automáticamente
-    // a través de sessionStorage y setTimeout.
-    // Ahora, el modal solo se abrirá cuando el usuario haga clic
-    // en el enlace "Apoya el Proyecto".
-    // === FIN DE CAMBIO ===
 }
